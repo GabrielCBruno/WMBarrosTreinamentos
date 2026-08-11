@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4 - Baixa no estoque</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header class="header-main">
+        <a href="index.html"> <h1>Lógica de programação com Javascript</h1></a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exercicio 4 - Baixa no estoque</h2>
+        
+        <div class="module-list">
+            <a href="exercicio_4.html">Mostrar a mensagem</a>
+            
+        </div>
+    </main>
+    <script>
+        let nome_produto = "Bola de Basquete";
+        let qtd_estoque = 50;
+        alert(nome_produto + " - Qtd no estoque " + qtd_estoque);
+        alert("Foram vendidos 3 itens do produto " + (qtd_estoque -= 3));
+        alert("Qtd atual no estoque do produto " + nome_produto +" é de " + qtd_estoque);
+    </script>
+</body>
+</html>
