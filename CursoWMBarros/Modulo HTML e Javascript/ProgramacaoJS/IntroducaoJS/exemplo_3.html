@@ -16,14 +16,15 @@
         <h2>Exemplo 3 - Eventos em Javascript</h2>
         <div class="form-column-item">
             <div class="form-group">
-                <label for="example3">Escolha uma opção</label>
+                <label for="example3">Opções</label>
                 <select id="example3" onchange="mudarValorOpcao(this.value)">
+                    <option value="">Escolha uma opção</option>
                     <option value="A">Option 1</option>
                     <option value="B">Option 2</option>
                 </select>
             </div>
         </div>
-        <button type="submit" class="btn success" onclick="mostrarMensagem()" >Send</button>
+        <button type="submit" class="btn success" onclick="mostrarMensagem()" >Mostrar</button>
     </main>
     <script>
 
@@ -32,7 +33,7 @@
         }
 
         function mostrarMensagem () {
-            alert("ola")
+            alert("ola usuario");
         }
         
     </script>
