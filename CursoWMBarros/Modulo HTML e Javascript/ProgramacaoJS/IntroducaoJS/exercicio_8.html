@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8 - Seleção de Nível</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        img {
+            margin-top: 15px;
+            border: 4px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-main">
+        <a href="index.html"> <h1>Lógica de programação com Javascript</h1></a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exercicio 8 - Seleção de Nível</h2>
+        
+        <select id="select01" onchange="mudarCor(this.value)">
+            <option value="Fácil">Fácil</option>
+            <option value="Médio">Médio</option>
+            <option value="Difícil">Difícil</option>
+        </select>
+
+        <img src="../imagens/heroiFacil.png" alt="imagem" id="imagem">
+    </main>
+    <script>
+        const img = document.querySelector("#imagem")
+        function mudarCor(dificuldadeEscolhida) {
+            alert("Você selecionou o nível de dificuldade: " + dificuldadeEscolhida);
+            if (dificuldadeEscolhida == "Fácil") {
+                img.src = "../imagens/heroiFacil.png";
+            }else if (dificuldadeEscolhida == "Médio") {
+                img.src = "../imagens/heroiMedio.png";
+            }else {
+                img.src = "../imagens/heroiDificil.png";
+            }
+        }
+    </script>
+</body>
+</html>
