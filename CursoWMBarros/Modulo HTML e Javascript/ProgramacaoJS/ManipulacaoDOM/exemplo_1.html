@@ -27,8 +27,16 @@
             <input type="text" id="email_usuario" placeholder="Digite o seu email aqui...">
         </div>
         <button type="submit" class="btn success" onclick="mostrarCampoDigitado()">Mostrar</button>
+        <button type="submit" id="btn_mostrar" class="btn success">Mostrar com lista de Eventos</button>
     </main>
     <script>
+
+        const btnMostrar = document.getElementById("btn_mostrar")
+
+        btnMostrar.addEventListener("click", () => {
+            alert("Clicou no botao do evento")
+        })
+
 
         function mostrarCampoDigitado() {
             const nomeCompleto = document.querySelector("#nome_completo").value
