@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2 - Pegando informações do produto</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!--
+Crie um formulário HTML com os seguintes campos: nome do produto,
+preço e quantidade em estoque. Adicione um botão com o evento onclick
+que chame uma função JavaScript com o nome “mostrarProduto”. A
+função deverá capturar o valor de cada campo do formulário e exibi-los
+em um alert() com as informações concatenadas. O conteúdo do alert()
+deve ser formatado para ter uma quebra de linha (\n) a cada informação
+-->
+
+<body>
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+    <main class="main-content">
+        <h2>Exercicio 2 - Pegando informações do produto</h2>
+        <div class="form-columns">
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="nome_produto">Nome do produto</label>
+                    <input type="text" id="nome_produto" placeholder="Digite o nome do produto aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="preco_produto">Preço do produto</label>
+                    <input type="text" id="preco_produto" placeholder="Digite o preço do produto aqui...">
+                </div>
+            </div>
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="quantidade_estoque">Quantidade em estoque</label>
+                    <input type="text" id="quantidade_estoque" placeholder="Digite a quantidade do produto em estoque aqui...">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn success" onclick="mostrarProduto()">Mostrar Produto</button>
+    </main>
+    <script>
+        
+        function mostrarProduto() {
+            const nomeProduto = document.querySelector("#nome_produto").value
+            const precoProduto = document.querySelector("#preco_produto").value
+            const quantidadeEstoque = document.querySelector("#quantidade_estoque").value
+
+            alert(`Nome do Produto: ${nomeProduto}. \nPreço: ${precoProduto}. \nQuantidade em estoque: ${quantidadeEstoque}.`)
+        }
+    </script>
+</body>
+
+</html>
