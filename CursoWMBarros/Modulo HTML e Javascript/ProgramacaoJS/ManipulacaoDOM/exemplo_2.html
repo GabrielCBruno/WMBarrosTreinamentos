@@ -18,24 +18,26 @@
 
     <main class="main-content">
         <h2>Exemplo 2 - Calcular valores</h2>
-        <div class="form-columns">
-            <div class="form-column-item">
-                <div class="form-group">
-                    <label for="numero1">Numero 1</label>
-                    <input type="text" id="numero1" placeholder="Digite o número 1 aqui...">
+        <form action="#">
+            <div class="form-columns">
+                <div class="form-column-item">
+                    <div class="form-group">
+                        <label for="numero1">Numero 1</label>
+                        <input type="text" id="numero1" placeholder="Digite o número 1 aqui...">
+                    </div>
+                </div>
+                <div class="form-column-item">
+                    <div class="form-group">
+                        <label for="numero2">Numero 2</label>
+                        <input type="text" id="numero2" placeholder="Digite o número 2 aqui...">
+                    </div>
                 </div>
             </div>
-            <div class="form-column-item">
-                <div class="form-group">
-                    <label for="numero2">Numero 2</label>
-                    <input type="text" id="numero2" placeholder="Digite o número 2 aqui...">
-                </div>
-            </div>
-        </div>
-        <button type="submit" id="btn_multiplicar" class="btn success">Multiplicar</button>
-        <button type="submit" id="btn_dividir" class="btn success">Dividir</button>
-        <button type="submit" id="btn_subtrair" class="btn success">Subtrair</button>
-        <button type="submit" id="btn_somar" class="btn success">Somar</button>
+            <button type="submit" id="btn_multiplicar" class="btn success">Multiplicar</button>
+            <button type="submit" id="btn_dividir" class="btn success">Dividir</button>
+            <button type="submit" id="btn_subtrair" class="btn success">Subtrair</button>
+            <button type="submit" id="btn_somar" class="btn success">Somar</button>
+        </form>
     </main>
     <script>
 
@@ -44,36 +46,28 @@
         const btnSubtrair = document.querySelector("#btn_subtrair")
         const btnSomar = document.querySelector("#btn_somar")
 
-        let numero1
-        let numero2
+        const numero1 = document.getElementById("numero1")
+        const numero2 = document.getElementById("numero2")
         let resultado
 
         btnSomar.addEventListener("click", () => {
-            numero1 = document.getElementById("numero1").value
-            numero2 = document.getElementById("numero2").value
-            resultado = Number(numero1) + Number(numero2)
+            resultado = Number(numero1.value) + Number(numero2.value)
             alert(`Subtração: ${resultado}`)
         })
 
         btnSubtrair.addEventListener("click", () => {
-            numero1 = document.getElementById("numero1").value
-            numero2 = document.getElementById("numero2").value
-            resultado = numero1 - numero2
+            resultado = numero1.value - numero2.value
             alert(`Subtração: ${resultado}`)
         })
 
         btnDividir.addEventListener("click", () => {
-            numero1 = document.getElementById("numero1").value
-            numero2 = document.getElementById("numero2").value
-            resultado = numero1 / numero2
+            resultado = numero1.value / numero2.value
             alert(`Divisão: ${resultado.toFixed(2)}`)
         })
 
 
         btnMultiplicar.addEventListener("click", () => {
-            numero1 = document.getElementById("numero1").value
-            numero2 = document.getElementById("numero2").value
-            resultado = numero1 * numero2
+            resultado = numero1.value * numero2.value
             alert(`Multiplicação: ${resultado}`)
         })
 
