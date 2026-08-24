@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5 - Calcular o dobro da soma</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!--
+Crie um formulário HTML com quatro campos de texto para digitar
+números. Adicione um botão com o texto “Calcular Dobro da Soma” e
+utilize addEventListener para associar a ação ao botão. A função deverá
+capturar os quatro valores, somar e em seguida multiplicar o resultado
+por 2. O resultado final deve ser exibido em um alert().
+-->
+
+<body>
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+    <main class="main-content">
+        <h2>Exercicio 5 - Calcular o dobro da soma</h2>
+        <form action="#">
+            <div class="form-columns">
+                <div class="form-column-item">
+                    <div class="form-group">
+                        <label for="numero1">Número 1</label>
+                        <input type="text" id="numero1" placeholder="Digite o número 1 aqui...">
+                    </div>
+                    <div class="form-group">
+                        <label for="numero2">Número 2</label>
+                        <input type="text" id="numero2" placeholder="Digite o número 2 aqui...">
+                    </div>
+                </div>
+                <div class="form-column-item">
+                    <div class="form-group">
+                        <label for="numero3">Número 3</label>
+                        <input type="text" id="numero3" placeholder="Digite o número 3 aqui...">
+                    </div>
+                    <div class="form-group">
+                        <label for="numero4">Número 4</label>
+                        <input type="text" id="numero4" placeholder="Digite o número 4 aqui...">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button type="submit" id="btn_calcular" class="btn success">Calcular Dobro da Soma</button>
+    </main>
+    <script>
+        const btnSomarDobro = document.querySelector("#btn_calcular")
+        const numero1 = document.querySelector("#numero1")
+        const numero2 = document.querySelector("#numero2")
+        const numero3 = document.querySelector("#numero3")
+        const numero4 = document.querySelector("#numero4")
+
+        btnSomarDobro.addEventListener("click", () => {
+            let soma = Number(numero1.value) + Number(numero2.value) + Number(numero3.value) + Number(numero4.value)
+            soma = soma * 2
+            alert(`A soma dos números: ${numero1.value} + ${numero2.value} + ${numero3.value} + ${numero4.value} multiplicado por 2 é: ${soma}`)
+        })
+    </script>
+</body>
+
+</html>
