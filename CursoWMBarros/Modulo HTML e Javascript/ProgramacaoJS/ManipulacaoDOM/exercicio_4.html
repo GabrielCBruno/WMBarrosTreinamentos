@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4 - Capturando informações de uma empresa</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!--
+Crie um formulário HTML com os seguintes campos: um para digitar o
+nome da empresa, um outro para digitar o CNPJ, um outro para digitar o
+nome do responsável, um outro para digitar o telefone e outro para digitar
+a quantidade de funcionários. Adicione um botão escrito “Mostrar Dados
+empresa”. Utilize o addEventListener para adicionar o evento click ao
+botão. A função chamada no clique deve capturar os valores digitados nos
+inputs e exibi-los em um alert() com quebra de linha entre cada
+informação.
+-->
+
+<body>
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+    <main class="main-content">
+        <h2>Exercicio 4 - Capturando informações de uma empresa</h2>
+        <form action="#">
+            <div class="form-columns">
+                <div class="form-column-item">
+                    <div class="form-group">
+                        <label for="nome_empresa">Nome da Empresa</label>
+                        <input type="text" id="nome_empresa" placeholder="Digite o nome do produto aqui...">
+                    </div>
+                    <div class="form-group">
+                        <label for="cnpj_empresa">Cnpj</label>
+                        <input type="text" id="cnpj_empresa" placeholder="Digite o ano aqui...">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidade_funcionarios">Quantidade de Funcionario</label>
+                        <input type="text" id="quantidade_funcionarios" placeholder="Digite o ano aqui...">
+                    </div>
+                </div>
+                <div class="form-column-item">
+                    <div class="form-group">
+                        <label for="nome_responsavel">Nome do Responsável</label>
+                        <input type="text" id="nome_responsavel" placeholder="Digite a edição aqui...">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone_empresa">Telefone</label>
+                        <input type="text" id="telefone_empresa" placeholder="Digite o nome do autor aqui...">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button type="submit" id="btn_mostrar" class="btn success">Mostrar Dados Empresa</button>
+    </main>
+    <script>
+        const btnMostrar = document.getElementById("btn_mostrar")
+        btnMostrar.addEventListener("click", () => {
+            const empresa = document.querySelector("#nome_empresa").value
+            const cnpj = document.querySelector("#cnpj_empresa").value
+            const qtdFuncionarios = document.querySelector("#quantidade_funcionarios").value
+            const nomeResponsavel = document.querySelector("#nome_responsavel").value
+            const telefone = document.querySelector("#telefone_empresa").value
+
+            alert(`Empresa: ${empresa}. \nCnpj: ${cnpj}. \nQuantidade de funcionários: ${qtdFuncionarios}. \nNome do Responsável: ${nomeResponsavel}. \nTelefone: ${telefone}.`)
+        })
+    </script>
+</body>
+
+</html>
