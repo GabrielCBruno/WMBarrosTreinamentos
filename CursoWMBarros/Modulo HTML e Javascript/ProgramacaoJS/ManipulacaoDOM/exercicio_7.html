@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7 - Calcular média de idades</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!--
+Crie um formulário HTML com cinco campos de texto para digitar idades.
+Adicione um botão com o texto “Calcular Média de Idades” e utilize
+addEventListener para associar a ação ao botão. A função deverá
+capturar os cinco valores, calcular a média aritmética e exibir o resultado
+em um alert()
+-->
+
+<body>
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+    <main class="main-content">
+        <h2>Exercicio 7 - Calcular média de idades</h2>
+        <div class="form-columns">
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="idade1">Idade 1</label>
+                    <input type="text" id="idade1" placeholder="Digite a idade 1 aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="idade2">Idade 2</label>
+                    <input type="text" id="idade2" placeholder="Digite a idade 2 aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="idade3">Idade 3</label>
+                    <input type="text" id="idade3" placeholder="Digite a idade 3 aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="idade4">Idade 4</label>
+                    <input type="text" id="idade4" placeholder="Digite a idade 4 aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="idade5">Idade 5</label>
+                    <input type="text" id="idade5" placeholder="Digite a idade 5 aqui...">
+                </div>
+            </div>
+        </div>
+        <button type="submit" id="btn_calcular_media" class="btn success">Calcular Media de Idades</button>
+    </main>
+    <script>
+
+    const idade1 = document.getElementById("idade1")
+    const idade2 = document.getElementById("idade2")
+    const idade3 = document.getElementById("idade3")
+    const idade4 = document.getElementById("idade4")
+    const idade5 = document.getElementById("idade5")
+    const btnCalcularMedia = document.getElementById("btn_calcular_media")
+        
+    btnCalcularMedia.addEventListener("click", () => {
+        const media = (Number(idade1.value) + Number(idade2.value) + Number(idade3.value) + Number(idade4.value) + Number(idade5.value))/5
+        alert(`A media das idades é ${media}`)
+    })
+        
+    </script>
+</body>
+
+</html>

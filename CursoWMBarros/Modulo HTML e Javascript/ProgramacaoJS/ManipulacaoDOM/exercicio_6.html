@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6 - Calcular o valor total de produtos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!--
+Crie um formulário HTML com quatro campos de texto para digitar preços
+de produtos e 4 campos para digitar a quantidade. Adicione um botão com
+o texto “Calcular Total” e utilize addEventListener para associar a ação ao
+botão. A função deverá capturar os quatro valores, multiplicar pela
+quantidade de cada, somar e exibir o valor total em um alert()
+-->
+
+<body>
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+    <main class="main-content">
+        <h2>Exercicio 6 - Calcular o valor total de produtos</h2>
+        <div class="form-columns">
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="preco1">Preço 1</label>
+                    <input type="text" id="preco1" placeholder="Digite o preço 1 aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="preco2">Preço 2</label>
+                    <input type="text" id="preco2" placeholder="Digite o preço 2 aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="preco3">Preço 3</label>
+                    <input type="text" id="preco3" placeholder="Digite o preço 3 aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="preco4">Preço 4</label>
+                    <input type="text" id="preco4" placeholder="Digite o preço 4 aqui...">
+                </div>
+            </div>
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="quantidade1">Quantidade</label>
+                    <input type="text" id="quantidade1" placeholder="Digite a quantidade aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="quantidade2">Quantidade</label>
+                    <input type="text" id="quantidade2" placeholder="Digite a quantidade aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="quantidade3">Quantidade</label>
+                    <input type="text" id="quantidade3" placeholder="Digite a quantidade aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="quantidade4">Quantidade</label>
+                    <input type="text" id="quantidade4" placeholder="Digite a quantidade aqui...">
+                </div>
+            </div>
+        </div>
+        <button type="submit" id="btn_calcularTotal" class="btn success">Calcular Total</button>
+    </main>
+    <script>
+    const preco1 = document.getElementById("preco1")
+    const preco2 = document.getElementById("preco2")
+    const preco3 = document.getElementById("preco3")
+    const preco4 = document.getElementById("preco4")
+    const quantidade1 = document.getElementById("quantidade1")
+    const quantidade2 = document.getElementById("quantidade2")
+    const quantidade3 = document.getElementById("quantidade3")
+    const quantidade4 = document.getElementById("quantidade4")
+    const btnCalcularTotal = document.getElementById("btn_calcularTotal")
+        
+    btnCalcularTotal.addEventListener("click", () => {
+        const preco1Total = preco1.value * quantidade1.value
+        const preco2Total = preco2.value * quantidade2.value
+        const preco3Total = preco3.value * quantidade3.value
+        const preco4Total = preco4.value * quantidade4.value
+        alert(`O valor total dos preços multiplicados pelas quantidade é ${preco1Total + preco2Total + preco3Total + preco4Total}`)
+    })
+    </script>
+</body>
+
+</html>
