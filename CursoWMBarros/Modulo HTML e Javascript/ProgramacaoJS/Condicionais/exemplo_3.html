@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 3 - Eventos em Javascript</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exemplo 3 - Alterando o HTML</h2>
+        <div class="form-column-item">
+            <div class="form-group">
+                <label for="nome_completo">Nome Completo</label>
+                <input type="text" id="nome_completo" placeholder="Digite o seu nome completo aqui...">
+            </div>
+        </div>
+        <button type="submit" id="btn_mostrar_mensagem" class="btn success">Dar Boas Vindas</button>
+        <p id="msg_boas_vindas"></p>
+
+        <hr>
+
+        <p id="textoAEstilizar">Estilize este texto!</p>
+        <div class="form-group">
+            <label for="seletor_cor">Selecione a cor</label>
+            <select id="seletor_cor">
+                <option value="blue">Azul</option>
+                <option value="red">Vermelho</option>
+                <option value="yellow">Amarelo</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="seletor_tamanho">Selecione o tamanho</label>
+            <select id="seletor_tamanho">
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option value="16">16</option>
+            </select>
+        </div>
+        <button type="submit" id="btn_estilizar" class="btn success">Estilizar Texto</button>
+
+        <hr>
+
+        <div class="form-column-item">
+            <div class="form-group" style="display: none;" id="cpf">
+                <label for="cpf">CPF</label>
+                <input type="text">
+            </div>
+            <div class="form-group" style="display: none;" id="cnpj">
+                <label for="cnpj">CNPJ</label>
+                <input type="text">
+            </div>
+        </div>
+        <button type="submit" id="btn_pf" class="btn success">Pessoa Fisica</button>
+        <button type="submit" id="btn_pj" class="btn success">Pessoa Juridica</button>
+    </main>
+
+    <script>
+        //Exemplo 1
+        const nomeCompleto = document.getElementById("nome_completo")
+        const btnMostrarMensagem = document.getElementById("btn_mostrar_mensagem")
+        const msgBoasVindas = document.getElementById("msg_boas_vindas")
+
+        btnMostrarMensagem.addEventListener('click', () => {
+            msgBoasVindas.innerHTML = `Bem-Vindo ao curso ${nomeCompleto.value}!`
+        })
+
+        //Exemplo 2
+
+        const seletorCor = document.getElementById("seletor_cor")
+        const seletorTamanho = document.getElementById("seletor_tamanho")
+        const textoAEstilizar = document.getElementById("textoAEstilizar")
+        const btnEstilizar = document.getElementById("btn_estilizar")
+        
+
+        btnEstilizar.addEventListener("click", () => {
+            textoAEstilizar.style.color = seletorCor.value
+            textoAEstilizar.style.fontSize = seletorTamanho.value + "px"
+        })
+
+        //Exemplo 3
+
+        const btnPF = document.getElementById("btn_pf")
+        const btnPJ = document.getElementById("btn_pj")
+
+        const campoPessoaFisica = document.getElementById("cpf")
+        const campoPessoaJuridica = document.getElementById("cnpj")
+
+        btnPF.addEventListener("click", () => {
+            campoPessoaFisica.style.display = "block"
+            campoPessoaJuridica.style.display = "none"
+        })
+
+        btnPJ.addEventListener("click", () => {
+            campoPessoaFisica.style.display = "none"
+            campoPessoaJuridica.style.display = "block"
+        })
+
+    </script>
+</body>
+
+</html>
