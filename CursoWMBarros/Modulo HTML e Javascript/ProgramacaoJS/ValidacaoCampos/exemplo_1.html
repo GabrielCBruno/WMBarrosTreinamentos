@@ -46,6 +46,14 @@
             //função trim() remove os espaços antes e depois
             //propriedade value retorna o valor do campo HTML
 
+            function isNumber(valor) {
+                return !isNaN(valor)
+            }
+            
+            if (isNumber(idade)) {
+                alert(`Ok, o valor é um número!`)
+            }
+
             if (nome == "") {
                 alert("Preencha o campo NOME!!!")
                 campoNome.value = ""
