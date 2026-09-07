@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9 - Alterar Texto de um Parágrafo</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!--
+Crie um parágrafo HTML com o texto “Texto original”. Adicione um botão
+com o texto “Alterar Texto” e utilize addEventListener para associar a ação
+ao botão. A função deverá alterar o conteúdo do parágrafo para “O texto
+foi alterado com sucesso!”.
+-->
+
+<body>
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+    <main class="main-content">
+        <h2>Exercicio 9 - Alterar Texto de um Parágrafo</h2>
+        <p id="paragrafo">Texto original</p>
+        <button type="submit" id="btn_alterar_paragrafo" class="btn success">Alterar Texto Paragrafo</button>
+    </main>
+    <script>
+
+        const btnAlterarParagrafo = document.getElementById("btn_alterar_paragrafo")
+
+        btnAlterarParagrafo.addEventListener("click", () => {
+           const paragrafo = document.getElementById("paragrafo")
+           paragrafo.innerHTML = "O texto foi alterado com sucesso!"
+        })
+
+    </script>
+</body>
+
+</html>

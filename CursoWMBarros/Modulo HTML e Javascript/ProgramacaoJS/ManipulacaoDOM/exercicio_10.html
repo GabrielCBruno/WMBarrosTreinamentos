@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10 - Alterar o Tamanho da Fonte</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!--
+Crie um parágrafo com o texto “Aumente ou diminua meu tamanho”.
+Adicione dois botões: “Aumentar” e “Diminuir”. Utilize addEventListener
+para associar as ações aos botões. O botão “Aumentar” deverá aumentar
+a fonte do parágrafo em 2px, enquanto o botão “Diminuir” deverá reduzir
+em 2px.
+-->
+
+<body>
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+    <main class="main-content">
+        <h2>Exercicio 10 - Alterar o Tamanho da Fonte</h2>
+        <p id="paragrafo" style="font-size: 16px;">Aumente ou diminua meu tamanho</p>
+        <button type="submit" id="btn_aumentar" class="btn success">Aumentar Texto do Paragrafo</button>
+        <button type="submit" id="btn_diminuir" class="btn success">Diminuir Texto do Paragrafo</button>
+    </main>
+    <script>
+
+        const btnAumentar = document.getElementById("btn_aumentar")
+        const btnDiminuir = document.getElementById("btn_diminuir")
+        const paragrafo = document.getElementById("paragrafo")
+
+        btnAumentar.addEventListener("click", () => {   
+            //O código .style.fontSize traz o tamanho atual do campo (Div, paragrafo, etc...). Exemplo: 16 px.
+            const tamanhoAtual = parseInt(paragrafo.style.fontSize) 
+            //parseInt() essa função converte string em inteiro.
+            if (tamanhoAtual >= 55) {
+                paragrafo.style.fontSize = 16 + "px"
+            }else {
+                paragrafo.style.fontSize = (tamanhoAtual + 2) + "px"
+            }
+        })
+
+        btnDiminuir.addEventListener("click", () => {
+            const tamanhoAtual = parseInt(paragrafo.style.fontSize)
+            if (tamanhoAtual <= 5) {
+                paragrafo.style.fontSize = 16 + "px"
+            }else {
+                paragrafo.style.fontSize = (tamanhoAtual - 2) + "px"
+            }
+        })
+
+    </script>
+</body>
+
+</html>

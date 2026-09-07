@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12 - Alterar Várias Propriedades do Estilo</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!--
+Crie um parágrafo com o texto “Estilize-me”. Adicione um botão com o
+texto “Aplicar Estilo”. Utilize addEventListener para associar a ação ao
+botão. A função deverá mudar a cor do texto para azul, aumentar o
+tamanho da fonte para 22px e aplicar fontWeight = "bold".
+-->
+
+<body>
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+    <main class="main-content">
+        <h2>Exercicio 12 - Alterar Várias Propriedades do Estilo</h2>
+        <p id="paragrafo">Estilize-me</p>
+        <button type="submit" id="btn_adiconar_estilo" class="btn success">Adicionar Estilo</button>
+    </main>
+    <script>
+        
+        const btnEstilizar = document.querySelector("#btn_adiconar_estilo")
+        const paragrafo = document.getElementById("paragrafo")
+
+        btnEstilizar.addEventListener("click", () => {
+            paragrafo.style.color = "blue"
+            paragrafo.style.fontSize = "22px"
+            paragrafo.style.fontWeight = "bold"
+        })
+    </script>
+</body>
+
+</html>

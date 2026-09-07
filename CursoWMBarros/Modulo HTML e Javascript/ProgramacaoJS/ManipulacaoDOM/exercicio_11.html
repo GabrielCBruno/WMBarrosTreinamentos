@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11 - Adicionar Texto em uma Div</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!--
+Crie uma <div> vazia com o id “conteudo”. Adicione um botão com o texto
+“Adicionar Mensagem”. Utilize addEventListener para associar a ação ao
+botão. A função deverá inserir dentro da <div> o texto “Mensagem
+adicionada com sucesso!”
+-->
+
+<body>
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+    <main class="main-content">
+        <h2>Exercicio 11 - Adicionar Texto em uma Div</h2>
+        <div id="conteudo"></div>
+        <button type="submit" id="btn_adiconar_mensagem" class="btn success">Adicionar Mensagem</button>
+    </main>
+    <script>
+        
+        const conteudoDiv = document.getElementById("conteudo")
+        const btnAdicionarMensagem = document.getElementById("btn_adiconar_mensagem")
+
+        btnAdicionarMensagem.addEventListener("click", () => {
+            conteudoDiv.innerHTML = "Mensagem adicionada com sucesso!"
+        })
+    </script>
+</body>
+
+</html>
