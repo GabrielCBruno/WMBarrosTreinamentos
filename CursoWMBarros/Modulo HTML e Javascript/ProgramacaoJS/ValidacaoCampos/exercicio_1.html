@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1 - Validar Assunto, Mensagem e Telefone</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!--
+    Crie um formulário HTML com um input de texto “Assunto”, um <textarea>
+    “Mensagem” e um input de texto “Telefone”, além de um botão “Validar
+    Campos”. Utilize addEventListener para associar a ação ao botão. A
+    função deverá verificar, na ordem, se Assunto está vazio, depois
+    Mensagem e por último Telefone. Ao encontrar campo vazio, exibir alert(),
+    limpar o campo, focar no mesmo e interromper. Se todos estiverem
+    preenchidos, exibir um alert() informando que os campos foram validados
+    corretamente.
+    -->
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exercicio 1 - Validar Assunto, Mensagem e Telefone</h2>
+        <div class="form-group">
+            <label for="assunto">Assunto</label>
+            <input type="text" id="assunto" placeholder="Digite o assunto aqui...">
+        </div>
+        <div class="form-group">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" placeholder="Digite a mensagem aqui..."></textarea>
+        </div>
+        <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="text" id="telefone" placeholder="Digite o telefone aqui...">
+        </div>
+        <button type="submit" id="btn_validar_campos" class="btn success">Validar Campos</button>
+    </main>
+    <script>
+        const btnValidarCampos = document.getElementById("btn_validar_campos")
+
+        btnValidarCampos.addEventListener("click", ()=> {
+            const campoAssunto = document.getElementById("assunto")
+            const valorAssunto = campoAssunto.value.trim()
+            const campoMensagem = document.getElementById("mensagem")
+            const valorMensagem = campoMensagem.value.trim()
+            const campoTelefone = document.getElementById("telefone")
+            const valorTelefone = campoTelefone.value.trim()
+
+            if (valorAssunto == "") {
+                alert("O Campo Assunto está vazio!!! Por favor preencher.")
+                campoAssunto.value = ""
+                campoAssunto.focus()
+            }else if (valorMensagem == "") {
+                alert("O Campo Mensagem está vazio!!! Por favor preencher.")
+                campoMensagem.value = ""
+                campoMensagem.focus()
+            }else if (valorTelefone == "") {
+                alert("O Campo Telefone está vazio!!! Por favor preencher.")
+                campoTelefone.value = ""
+                campoTelefone.focus()
+            }else {
+                alert("Todos os campos foram validados corretamente.")
+            }
+        })
+    </script>
+</body>
+
+</html>

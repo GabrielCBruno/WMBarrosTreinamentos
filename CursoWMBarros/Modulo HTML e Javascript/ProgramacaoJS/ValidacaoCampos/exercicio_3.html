@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3 - Validar Formulário de Reserva de Hotel</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!--
+    Crie um formulário HTML com os campos: “Nome do hóspede”, “E-mail”,
+    “Telefone”, “Data de entrada”, “Data de saída”, “Quantidade de hóspedes”
+    e um <select> “Tipo de quarto” (com opção inicial vazia “-- selecione --” e
+    as opções: Pequeno, Médio, Grande). Adicione um botão com o texto
+    “Confirmar Reserva” e utilize addEventListener para associar a ação ao
+    botão. A função deverá verificar cada campo em ordem e, se encontrar
+    um vazio, exibir alert(), limpar o campo (ou <select>), focar nele e
+    encerrar. Caso todos estejam preenchidos, exibir um alert() de sucesso
+    na reserva e mostrar o resumo com todas as informações digitadas em
+    uma tag <p> (utilizar o innerHTML)
+    -->
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exercicio 3 - Validar Formulário de Reserva de Hotel</h2>
+        <div class="form-group">
+            <label for="nome_hospede">Nome do Hóspede</label>
+            <input type="text" id="nome_hospede" placeholder="Digite o nome aqui...">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="Digite o email aqui...">
+        </div>
+        <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="text" id="telefone" placeholder="Digite o telefone aqui...">
+        </div>
+        <div class="form-group">
+            <label for="data_entrada">Data de Entrada</label>
+            <input type="text" id="data_entrada" placeholder="Digite a data de entrada aqui...">
+        </div>
+        <div class="form-group">
+            <label for="data_saida">Data da Saida</label>
+            <input type="text" id="data_saida" placeholder="Digite a data da saida aqui...">
+        </div>
+        <div class="form-group">
+            <label for="qtd_hospedes">Quantidade de hóspedes</label>
+            <input type="text" id="qtd_hospedes" placeholder="Digite a quantidade de hóspedes aqui...">
+        </div>
+        <div class="form-group">
+            <label for="tipo_quarto">Tipo de Quarto</label>
+            <select id="tipo_quarto">
+                <option value="">selecione</option>
+                <option value="pequeno">Pequeno</option>
+                <option value="medio">Medio</option>
+                <option value="grande">Grande</option>
+            </select>
+        </div>
+        <button type="submit" id="btn_validar_campos" class="btn success">Confirmar Reserva</button>
+        <p id="conteudo"></p>
+    </main>
+    <script>
+        const btnValidarCampos = document.getElementById("btn_validar_campos")
+
+        btnValidarCampos.addEventListener("click", () => {
+            const campoNomeHospede = document.getElementById("nome_hospede")
+            const campoEmail = document.getElementById("email")
+            const campoTelefone = document.getElementById("telefone")
+            const campoDtEntrada = document.getElementById("data_entrada")
+            const campoDtSaida = document.getElementById("data_saida")
+            const campoQtdHospedes = document.getElementById("qtd_hospedes")
+            const campoTipoQuarto = document.getElementById("tipo_quarto")
+            const conteudo = document.getElementById("conteudo")
+
+            if (campoNomeHospede.value.trim() == "") {
+                alert("O Campo Nome do Hóspede está vazio!!! Por favor preencher.")
+                campoNomeHospede.value = ""
+                campoNomeHospede.focus()
+            } else if (campoEmail.value.trim() == "") {
+                alert("O Campo Email está vazio!!! Por favor preencher.")
+                campoEmail.value = ""
+                campoEmail.focus()
+            } else if (campoTelefone.value.trim() == "") {
+                alert("O Campo Telefone está vazio!!! Por favor preencher.")
+                campoTelefone.value = ""
+                campoTelefone.focus()
+            } else if (campoDtEntrada.value.trim() == "") {
+                alert("O Campo Data de Entrada está vazio!!! Por favor preencher.")
+                campoDtEntrada.value = ""
+                campoDtEntrada.focus()
+            } else if (campoDtSaida.value.trim() == "") {
+                alert("O Campo Data de Saida está vazio!!! Por favor preencher.")
+                campoDtSaida.value = ""
+                campoDtSaida.focus()
+            } else if (campoQtdHospedes.value.trim() == "") {
+                alert("O Campo Quantidade de Hóspedes está vazio!!! Por favor preencher.")
+                campoQtdHospedes.value = ""
+                campoQtdHospedes.focus()
+            } else if (campoTipoQuarto.value == "") {
+                alert("Tipo de Quarto incorreto!!! Por favor selecione uma tipo de quarto válido.")
+                campoTipoQuarto.focus()
+            } else {
+                const msg = `Nome do Hóspede: ${campoNomeHospede.value}. - Email: ${campoEmail.value}. - Telefone: ${campoTelefone.value}. - Data de Entrada: ${campoDtEntrada.value}. - Data de Saida: ${campoDtSaida.value}. - Quantidade de hóspedes: ${campoQtdHospedes.value}. - Tipo de quarto: ${campoTipoQuarto.value}.`
+                alert(`Sucesso na reserva.`)
+                conteudo.innerHTML = msg
+            }
+        })
+    </script>
+</body>
+
+</html>

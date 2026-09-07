@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2 - Validar Solicitação de Pedido Online</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!--
+    Crie um formulário HTML com os campos: “Nome do produto”,
+    “Quantidade”, “Nome do cliente”, “Endereço de entrega”, “CEP”, um
+    <select> “Forma de pagamento” (com opção inicial vazia “-- selecione --”,
+    e as demais opções: Cartão, PIX, Dinheiro) e um <textarea>
+    “Observações”. Adicione um botão com o texto “Enviar Pedido” e utilize
+    addEventListener para associar a ação ao botão. A função deverá
+    percorrer os campos na ordem, verificando se estão vazios, ao encontrar
+    um vazio, deverá exibir um alert(), limpar o campo, focar nele e
+    interromper. Caso todos estejam preenchidos, exibir um alert()
+    informando que o pedido foi validado com sucesso e mostrar o resumo
+    com todas as informações digitadas. Para cada informação, dê o “\n”.
+    -->
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exercicio 2 - Validar Solicitação de Pedido Online</h2>
+        <div class="form-group">
+            <label for="nome_produto">Nome do Produto</label>
+            <input type="text" id="nome_produto" placeholder="Digite o nome do produto aqui...">
+        </div>
+        <div class="form-group">
+            <label for="quantidade">Quantidade</label>
+            <input type="text" id="quantidade" placeholder="Digite a quantidade aqui...">
+        </div>
+        <div class="form-group">
+            <label for="cliente">Cliente</label>
+            <input type="text" id="cliente" placeholder="Digite o cliente aqui...">
+        </div>
+        <div class="form-group">
+            <label for="endereco">Endereço de Entrega</label>
+            <input type="text" id="endereco" placeholder="Digite o endereco aqui...">
+        </div>
+        <div class="form-group">
+            <label for="cep">CEP</label>
+            <input type="text" id="cep" placeholder="Digite o cep aqui...">
+        </div>
+        <div class="form-group">
+            <label for="forma_pagamento">Forma de Pagamento</label>
+            <select id="forma_pagamento">
+                <option value="">selecione</option>
+                <option value="cartao">Cartão</option>
+                <option value="pix">PIX</option>
+                <option value="dinheiro">Dinheiro</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="observacao">Observação</label>
+            <textarea id="observacao" placeholder="Digite a observação do produto aqui..."></textarea>
+        </div>
+        <button type="submit" id="btn_validar_campos" class="btn success">Validar Campos</button>
+    </main>
+    <script>
+        const btnValidarCampos = document.getElementById("btn_validar_campos")
+
+        btnValidarCampos.addEventListener("click", () => {
+            const campoNomeProduto = document.getElementById("nome_produto")
+            const campoQuantidade = document.getElementById("quantidade")
+            const campoCliente = document.getElementById("cliente")
+            const campoEndereco = document.getElementById("endereco")
+            const campoCep = document.getElementById("cep")
+            const campoFormaPagamento = document.getElementById("forma_pagamento")
+            const campoObservacao = document.getElementById("observacao")
+           
+            if (campoNomeProduto.value.trim() == "") {
+                alert("O Campo Nome do Produto está vazio!!! Por favor preencher.")
+                campoNomeProduto.value = ""
+                campoNomeProduto.focus()
+            } else if (campoQuantidade.value.trim() == "") {
+                alert("O Campo Quantidade está vazio!!! Por favor preencher.")
+                campoQuantidade.value = ""
+                campoQuantidade.focus()
+            } else if (campoCliente.value.trim() == "") {
+                alert("O Campo Cliente está vazio!!! Por favor preencher.")
+                campoCliente.value = ""
+                campoCliente.focus()
+            } else if(campoEndereco.value.trim() == "") {
+                alert("O Campo Endereco está vazio!!! Por favor preencher.")
+                campoEndereco.value = ""
+                campoEndereco.focus()
+            } else if(campoCep.value.trim() == "") {
+                alert("O Campo CEP está vazio!!! Por favor preencher.")
+                campoCep.value = ""
+                campoCep.focus()
+            } else if (campoFormaPagamento.value == "") {
+                alert("Forma de Pagamento incorreta!!! Por favor selecione uma forma de pagamento válida.")
+                //campoFormaPagamento.value = ""
+                campoFormaPagamento.focus()
+            } else if(campoObservacao.value.trim() == "") {
+                alert("O Campo Observação está vazio!!! Por favor preencher.")
+                campoObservacao.value = ""
+                campoObservacao.focus() 
+            }else {
+                const msg = `\nNome do produto: ${campoNomeProduto.value} \nQuantidade: ${campoQuantidade.value} \nCliente: ${campoCliente.value} \nEndereço: ${campoEndereco.value} \nCEP: ${campoCep.value} \nForma de Pagamento: ${campoFormaPagamento.value} \nObservação: ${campoObservacao.value}`
+                alert(`O pedido foi validado com sucesso. \nResumo: ${msg}`)
+            }
+        })
+    </script>
+</body>
+
+</html>
