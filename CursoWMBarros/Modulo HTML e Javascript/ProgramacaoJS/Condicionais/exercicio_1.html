@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1 - Comparar duas idades</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!--• Crie um formulário HTML com dois inputs de texto: um para digitar o nome e o
+    outro a idade. Repita esses campos para a digitação de uma outra pessoa e
+    um botão “Comparar Idades”. Utilize addEventListener para associar a ação ao
+    botão. A função deverá verificar qual idade é maior e exibir em um paragrafo o
+    nome e a idade da pessoa mais velha. Se ambas tiverem a mesma idade,
+    mostrar a mensagem: Ambas tem a mesma idade.
+    -->
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exemplo 1 - Comparar duas idades</h2>
+        <h3>Pessoa 1</h3>
+        <div class="form-group">
+            <label for="nome_pessoa_1">Nome</label>
+            <input type="text" id="nome_pessoa_1" placeholder="Digite o seu nome aqui...">
+        </div>
+        <div class="form-group">
+            <label for="idade_pessoa_1">Idade</label>
+            <input type="text" id="idade_pessoa_1" placeholder="Digite a idade aqui...">
+        </div>
+        <h3>Pessoa 2</h3>
+        <div class="form-group">
+            <label for="nome_pessoa_2">Nome</label>
+            <input type="text" id="nome_pessoa_2" placeholder="Digite o seu nome aqui...">
+        </div>
+        <div class="form-group">
+            <label for="idade_pessoa_2">Idade</label>
+            <input type="text" id="idade_pessoa_2" placeholder="Digite a idade aqui...">
+        </div>
+        <button type="submit" id="btn_comparar_idades" class="btn success">Comparar Idades</button>
+        <p id="conteudo"></p>
+    </main>
+    <script>
+
+        const mensagem = document.getElementById("conteudo")
+        const btnCompararIdades = document.getElementById("btn_comparar_idades")
+
+        btnCompararIdades.addEventListener("click", () => {
+            const nomePessoa1 = document.getElementById("nome_pessoa_1").value
+            const idadePessoa1 = document.getElementById("idade_pessoa_1").value
+            const nomePessoa2 = document.getElementById("nome_pessoa_2").value
+            const idadePessoa2 = document.getElementById("idade_pessoa_2").value
+            let msg;
+
+            if (idadePessoa1 > idadePessoa2) {
+                //Pessoa 1 é mais velha
+                msg = `A(o) ${nomePessoa1} com a idade ${idadePessoa1} é o mais velho!`
+            }else if (idadePessoa1 < idadePessoa2) {
+                //Pessoa 2 é mais velha
+                msg = `A(o) ${nomePessoa2} com a idade ${idadePessoa2} é o mais velho!`
+            }else {
+                //Ambas tem a mesma idade
+                msg = `Ambos possuem a mesma idade.`
+            }
+
+            mensagem.innerHTML = msg
+        })
+
+    </script>
+</body>
+
+</html>
