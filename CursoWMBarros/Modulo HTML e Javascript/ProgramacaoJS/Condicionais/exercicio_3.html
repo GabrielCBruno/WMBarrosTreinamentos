@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3 - Validação de Velocidade na Rodovia</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!--• • Crie um formulário HTML com um input de texto para digitar a velocidade do veículo
+    (km/h) e um botão “Checar Velocidade”. Utilize addEventListener para associar a ação
+    ao botão.
+    • A função deverá:
+     Exibir alert() “Acima do limite” se a velocidade for > 110.
+     Exibir alert() “Abaixo do mínimo” se a velocidade for < 40.
+     Se a velocidade for != 60, exibir também um alert() “Diferente da velocidade de
+    referência (60 km/h)”.
+     Caso não se enquadre nos itens 1 e 2, e seja exatamente 60, exibir
+    “Velocidade dentro do esperado”.
+    -->
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exercicio 3 - Validação de Velocidade na Rodovia</h2>
+        <div class="form-group">
+            <label for="velocidade_veiculo">Velocidade do Veiculo</label>
+            <input type="text" id="velocidade_veiculo" placeholder="Digite a velocidade aqui...">
+        </div>
+        <button type="submit" id="btn_checar_velocidade" class="btn success">Checar Velocidade</button>
+    </main>
+    <script>
+
+        const btnChecarVelocidade = document.getElementById("btn_checar_velocidade")
+
+        btnChecarVelocidade.addEventListener("click", () => {
+            const velocidade = Number(document.getElementById("velocidade_veiculo").value)
+
+            if (velocidade > 110) {
+                //Acima de 110
+                alert("Acima do limite.")
+            } else if (velocidade == 60) {
+                //Abaixo de 110, mas igual a 60
+                alert("Velocidade dentro do esperado.")
+            } else if (velocidade >= 40) {
+                //Velocidade está entre 110 e 40, mas não é diferente de 60
+                alert ("Diferente da velocidade de referencia (60 km/h)!")
+            }else {
+                //Velocidade abaixo de 40
+                alert("Abaixo do mínimo")
+            }
+        })
+
+    </script>
+</body>
+
+</html>
