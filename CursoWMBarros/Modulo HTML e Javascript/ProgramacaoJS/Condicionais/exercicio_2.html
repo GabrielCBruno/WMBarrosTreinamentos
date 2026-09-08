@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2 - Controle de Estoque de Produtos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!--
+    Crie duas variáveis globais no script: qtdEstoqueTeclado=10 e
+    qtdEstoqueMouse=15.
+    Siga o que foi explicado na aula 013.1 - do módulo 03 para chamar as páginas.
+
+    • Crie um formulário HTML com um select contendo as opções Teclado e Mouse
+    e um input de texto para digitar a quantidade de retirada.
+    • Adicione um botão com o texto Retirar do Estoque e utilize addEventListener
+    para associar a ação ao botão.
+    • A função deverá:
+     Identificar o produto selecionado.
+     Comparar a quantidade desejada com o estoque disponível utilizando os
+    operadores relacionais.
+     Se a quantidade for maior que o estoque disponível, exibir um alert()
+    informando que não há estoque suficiente.
+     Caso contrário, subtrair do estoque a quantidade retirada e exibir em um
+    alert() a mensagem “Retirada realizada com sucesso. Estoque atual: X”.
+    -->
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+    <main class="main-content">
+        <h2>Exercicio 2 - Controle de Estoque de Produtos</h2>
+        <div class="form-group">
+            <label for="seletor_produto">Selecione o produto que deseja comprar</label>
+            <select id="seletor_produto">
+                <option value="">-- Selecione --</option>
+                <option value="teclado">teclado</option>
+                <option value="mouse">mouse</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="qtd_retirar">Quantidade para Comprar</label>
+            <input type="text" id="qtd_retirar" placeholder="Digite a quantidade que vai retirar aqui...">
+        </div>
+        <button type="submit" id="btn_retirar_estoque" class="btn success">Retirar do Estoque</button>
+        <p id="conteudo"></p>
+    </main>
+    <script>
+
+        let qtdEstoqueTeclado = 10, qtdEstoqueMouse = 15
+        const btnRetirarProdutoEstoque = document.getElementById("btn_retirar_estoque")
+
+        btnRetirarProdutoEstoque.addEventListener("click", () => {
+            const campoProduto = document.getElementById("seletor_produto")
+            const produto = campoProduto.value
+            const campoQtdComprar = document.getElementById("qtd_retirar")
+            const qtd_comprar = parseInt(campoQtdComprar.value)
+            let msg
+
+            if (produto == "") {
+                alert("Por favor escolha uma opção válida!!!")
+                campoProduto.focus()
+                return ""
+            } else if (isNaN(qtd_comprar)) {
+                alert("Por favor preencher o campo Quantidade para Comprar!!!")
+                campoQtdComprar.value = ""
+                campoQtdComprar.focus()
+                return ""
+            } else if (produto == "teclado") {
+                if (qtd_comprar <= qtdEstoqueTeclado) {
+                    qtdEstoqueTeclado = qtdEstoqueTeclado - qtd_comprar
+                    msg = `Retirada realizada com sucesso. Estoque atual do teclado: ${qtdEstoqueTeclado}`
+                } else {
+                    msg = `Estoque do produto é insuficiente para a comprar. \nEstoque atual: ${qtdEstoqueTeclado}`
+                }
+            }else {
+                if (qtd_comprar <= qtdEstoqueMouse) {
+                    qtdEstoqueMouse = qtdEstoqueMouse - qtd_comprar
+                    msg = `Retirada realizada com sucesso. Estoque atual do mouse: ${qtdEstoqueMouse}`
+                }else {
+                    msg = `Estoque do produto é insuficiente para a comprar. \nEstoque atual: ${qtdEstoqueTeclado}`
+                }
+            }
+            alert(msg)
+            campoProduto.focus()
+            campoQtdComprar.value = ""
+        })
+
+    </script>
+</body>
+
+</html>
