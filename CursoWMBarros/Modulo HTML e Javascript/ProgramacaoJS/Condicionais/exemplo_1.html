@@ -33,7 +33,10 @@
 
         const nomeCompleto = document.getElementById("nome_completo")
         const idade = document.getElementById("idade_usuario")
+        const msg = document.getElementById("msg")
         const btnVerificar = document.getElementById("btn_verificar")
+        const idadeMaxima = 100
+        const idadeMinima = 16
 
         btnVerificar.addEventListener("click", () => {
 
@@ -42,15 +45,25 @@
                 nomeCompleto.value = ""
                 nomeCompleto.focus()
             }else if (idade.value.trim() == "") {
-                alert("Preencha o campo EMAIL!!!")
+                alert("Preencha o campo Idade!!!")
                 idade.value = ""
                 idade.focus()
             }else if (isNaN(idade.value.trim())) {
                 idade.value = ""
                 idade.focus()
                 alert("Preencher a idade com somente números!!!")
+            }else if (idade.value.trim() < idadeMinima) {
+                alert(`O usuário ${nomeCompleto.value} não tem idade minima para jogar`)
+                idade.value = ""
+                idade.focus()
+                msg.innerHTML = ""
+            }else if (idade.value.trim() > idadeMaxima) {
+                alert(`O usuário ${nomeCompleto.value} tem idade maior que idade máxima para jogar`)
+                idade.value = ""
+                idade.focus()
+                msg.innerHTML = ""
             }else {
-                alert("Campos validados corretamente!!!")
+                msg.innerHTML = `O usuário ${nomeCompleto.value} tem idade para jogar`
             }
         })
 
