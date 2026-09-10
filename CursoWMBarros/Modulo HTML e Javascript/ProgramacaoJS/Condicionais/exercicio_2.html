@@ -55,11 +55,11 @@
 
         let qtdEstoqueTeclado = 10, qtdEstoqueMouse = 15
         const btnRetirarProdutoEstoque = document.getElementById("btn_retirar_estoque")
+        const campoProduto = document.getElementById("seletor_produto")
+        const campoQtdComprar = document.getElementById("qtd_retirar")
 
         btnRetirarProdutoEstoque.addEventListener("click", () => {
-            const campoProduto = document.getElementById("seletor_produto")
             const produto = campoProduto.value
-            const campoQtdComprar = document.getElementById("qtd_retirar")
             const qtd_comprar = parseInt(campoQtdComprar.value)
             let msg
 
