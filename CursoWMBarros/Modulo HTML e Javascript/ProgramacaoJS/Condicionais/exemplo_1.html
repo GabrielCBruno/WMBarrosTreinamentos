@@ -23,25 +23,38 @@
             <input type="text" id="nome_completo" placeholder="Digite o seu nome aqui...">
         </div>
         <div class="form-group">
-            <label for="email_usuario">Email</label>
-            <input type="text" id="email_usuario" placeholder="Digite o seu email aqui...">
+            <label for="idade_usuario">Idade</label>
+            <input type="text" id="idade_usuario" placeholder="Digite a sua idade aqui...">
         </div>
-        
-        <button type="submit" id="btn_mostrar" class="btn success">Mostrar</button>
+        <p id="msg"></p>
+        <button type="submit" id="btn_verificar" class="btn success">Mostrar</button>
     </main>
     <script>
 
-        const btnMostrar = document.getElementById("btn_mostrar")
+        const nomeCompleto = document.getElementById("nome_completo")
+        const idade = document.getElementById("idade_usuario")
+        const btnVerificar = document.getElementById("btn_verificar")
 
-        btnMostrar.addEventListener("click", () => {
-            alert("Clicou no botao do evento")
+        btnVerificar.addEventListener("click", () => {
+
+             if (nomeCompleto.value.trim() == "") {
+                alert("Preencha o campo NOME!!!")
+                nomeCompleto.value = ""
+                nomeCompleto.focus()
+            }else if (idade.value.trim() == "") {
+                alert("Preencha o campo EMAIL!!!")
+                idade.value = ""
+                idade.focus()
+            }else if (isNaN(idade.value.trim())) {
+                idade.value = ""
+                idade.focus()
+                alert("Preencher a idade com somente números!!!")
+            }else {
+                alert("Campos validados corretamente!!!")
+            }
         })
 
-        function mostrarCampoDigitado() {
-            const nomeCompleto = document.querySelector("#nome_completo").value
-            const email = document.querySelector("#email_usuario").value
-            alert(`Nome completo: ${nomeCompleto} \nEmail: ${email}`)
-        }
+        
 
     </script>
 </body>
