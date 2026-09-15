@@ -27,47 +27,99 @@
             <input type="text" id="idade_usuario" placeholder="Digite a sua idade aqui...">
         </div>
         <p id="msg"></p>
-        <button type="submit" id="btn_verificar" class="btn success">Mostrar</button>
+        <button type="submit" id="btn_verificar" class="btn success">Verificar Idade</button>
+        <hr>
+        <div class="form-columns">
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="nome_completo">Nome de cadastro</label>
+                    <input type="text" id="nome_cadastro" placeholder="Digite o seu nome de cadastro aqui...">
+                </div>
+            </div>
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="login_acesso">Login</label>
+                    <input type="text" id="login_acesso" placeholder="Digite o seu login aqui...">
+                </div>
+            </div>
+        </div>
+        <div class="form-columns">
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="text" id="senha" placeholder="Digite a sua senha aqui... Minimo 6 caracteres">
+                </div>
+            </div>
+            <div class="form-column-item">
+                <div class="form-group">
+                    <label for="repita_senha">Repita a Senha</label>
+                    <input type="text" id="repita_senha" placeholder= "Repita a sua senha aqui...">
+                </div>
+            </div>
+        </div>
+        <p id="msg_cadastro"></p>
+        <button type="submit" id="btn_verificar_cadastro" class="btn success">Verificar cadastro</button>
     </main>
     <script>
+
+        const btnVerificar = document.getElementById("btn_verificar")
+        const btnVerificarCadastro = document.getElementById("btn_verificar_cadastro")
 
         const nomeCompleto = document.getElementById("nome_completo")
         const idade = document.getElementById("idade_usuario")
         const msg = document.getElementById("msg")
-        const btnVerificar = document.getElementById("btn_verificar")
         const idadeMaxima = 100
         const idadeMinima = 16
+        const msgCadastro = document.getElementById("msg_cadastro")
+
+        btnVerificarCadastro.addEventListener("click", () => {
+            const CampoNome = document.getElementById("nome_cadastro")
+            const CampoLogin = document.getElementById("login_acesso")
+            const CampoSenha = document.getElementById("senha")
+
+            if (CampoNome.value.trim() == "") {
+                alert("Preencha o campo NOME Cadastro!!!")
+                CampoNome.value = ""
+                CampoNome.focus()
+            } else if (CampoLogin.value.trim() == "") {
+                alert("Preencha o campo Login!!!")
+                CampoLogin.value = ""
+                CampoLogin.focus()
+            }
+
+            
+        })
 
         btnVerificar.addEventListener("click", () => {
 
-             if (nomeCompleto.value.trim() == "") {
+            if (nomeCompleto.value.trim() == "") {
                 alert("Preencha o campo NOME!!!")
                 nomeCompleto.value = ""
                 nomeCompleto.focus()
-            }else if (idade.value.trim() == "") {
+            } else if (idade.value.trim() == "") {
                 alert("Preencha o campo Idade!!!")
                 idade.value = ""
                 idade.focus()
-            }else if (isNaN(idade.value.trim())) {
+            } else if (isNaN(idade.value.trim())) {
                 idade.value = ""
                 idade.focus()
                 alert("Preencher a idade com somente números!!!")
-            }else if (idade.value.trim() < idadeMinima) {
+            } else if (idade.value.trim() < idadeMinima) {
                 alert(`O usuário ${nomeCompleto.value} não tem idade minima para jogar`)
                 idade.value = ""
                 idade.focus()
                 msg.innerHTML = ""
-            }else if (idade.value.trim() > idadeMaxima) {
+            } else if (idade.value.trim() > idadeMaxima) {
                 alert(`O usuário ${nomeCompleto.value} tem idade maior que idade máxima para jogar`)
                 idade.value = ""
                 idade.focus()
                 msg.innerHTML = ""
-            }else {
+            } else {
                 msg.innerHTML = `O usuário ${nomeCompleto.value} tem idade para jogar`
             }
         })
 
-        
+
 
     </script>
 </body>
