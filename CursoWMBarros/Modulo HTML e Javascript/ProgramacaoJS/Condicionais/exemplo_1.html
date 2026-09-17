@@ -76,6 +76,7 @@
             const CampoNome = document.getElementById("nome_cadastro")
             const CampoLogin = document.getElementById("login_acesso")
             const CampoSenha = document.getElementById("senha")
+            const CampoRepitaSenha = document.getElementById("repita_senha")
 
             if (CampoNome.value.trim() == "") {
                 alert("Preencha o campo NOME Cadastro!!!")
@@ -85,6 +86,20 @@
                 alert("Preencha o campo Login!!!")
                 CampoLogin.value = ""
                 CampoLogin.focus()
+            } else if (CampoSenha.value.trim() == "") {
+                alert("Preencha o campo Senha!!!")
+                CampoSenha.value = ""
+                CampoSenha.focus()
+            } else if (length(CampoSenha.value.trim()) < 6) {
+                alert("A senha deve ter no minino 6 caracteres!!!")
+                CampoSenha.value = ""
+                CampoSenha.focus()
+            } else if (CampoRepitaSenha.value.trim() != CampoSenha.value.trim()) {
+                alert("As senhas não são iguais!!!")
+                CampoSenha.value = ""
+                CampoSenha.focus() 
+            } else {
+                msg.innerHTML = "Usuario logado com sucesso!!!"
             }
 
             
