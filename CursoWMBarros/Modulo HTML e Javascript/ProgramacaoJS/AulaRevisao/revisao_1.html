@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de programação com JavaScript</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="header-main">
+        <a href="index.html">
+            <h1>
+                Módulo Extra - Atividades Práticas
+            </h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>
+            Variáveis em JS
+        </h2>
+        <div class="cartao">
+            1. Declarar todos os tipos de variáveis estudados, como constantes e variáveis.
+            <br>
+            2. Como constantes utilizar const e iniciar na declaração.
+            <br>
+            3. Como variáveis utilizar let e iniciar sem valor, definir depois.
+            <br>
+            4. Criar alert explicando cada tipo e exemplificar concatenando com o valor da variável declarada.
+            <br>
+            5. Exercitar Number, String, Bool, toFixed(), parseFloat()
+            <br>
+            6. Criar alert exibindo os valores transformados.
+        </div>
+
+        <h2>
+            Formulário
+        </h2>
+        <div class="form-container">
+            Nenhum formulário é requerido para este exercício.
+        </div>
+    </main>
+
+    <script>
+        const texto = "Isso é um texto"  //String
+        const inteiro = 123 //Number
+        const decimal = 12.5 //Number
+        const booleano = false // bool
+
+        let texto2
+        let inteiro2
+        let decimal2
+        let boleano2
+
+        texto2 = "Isso também é um texto"
+        inteiro2 = 321
+        decimal2 = 1.23
+        booleano = true
+
+        alert("Texto: " + texto + " | Inteiro: " + inteiro + " | Decimal: " decimal + " | Booleano: " + booleano)
+
+        const textoString = String("texto")
+        alert(typeof(textoString))
+
+        let textoNumber = String("texto")
+        textoNumber = String("123")
+        alert(typeof(textoNumber))
+        
+
+    </script>
+</body>
+
+</html>
