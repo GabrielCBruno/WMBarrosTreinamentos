@@ -32,24 +32,32 @@
         <h2>Exercicio 3 - Validação de Velocidade na Rodovia</h2>
         <div class="form-group">
             <label for="velocidade_veiculo">Velocidade do Veiculo</label>
-            <input type="text" id="velocidade_veiculo" placeholder="Digite a velocidade aqui...">
+            <input type="text" id="velocidade_veiculo" placeholder="Digite a velocidade aqui... Ex: 80">
         </div>
         <button type="submit" id="btn_checar_velocidade" class="btn success">Checar Velocidade</button>
     </main>
     <script>
-
+        const campoVelocidade = document.getElementById("velocidade_veiculo")
         const btnChecarVelocidade = document.getElementById("btn_checar_velocidade")
 
         btnChecarVelocidade.addEventListener("click", () => {
-            const velocidade = Number(document.getElementById("velocidade_veiculo").value)
+            const velocidade = campoVelocidade.value.trim()
 
-            if (velocidade > 110) {
+            if (velocidade == "") {
+                alert(`Por favor preencher o campo velocidade!!!`)
+                campoVelocidade.value = ""
+                campoVelocidade.focus()
+            }else if (isNaN(velocidade)) {
+                alert(`Por favor preencher o campo velocidade com um valor númerico!!!`)
+                campoVelocidade.value = ""
+                campoVelocidade.focus()
+            }else if (velocidade > 110) {
                 //Acima de 110
                 alert("Acima do limite.")
-            } else if (velocidade == 60) {
+            }else if (velocidade == 60) {
                 //Abaixo de 110, mas igual a 60
                 alert("Velocidade dentro do esperado.")
-            } else if (velocidade >= 40) {
+            }else if (velocidade >= 40) {
                 //Velocidade está entre 110 e 40, mas é diferente de 60
                 alert ("Diferente da velocidade de referencia (60 km/h)!")
             }else {

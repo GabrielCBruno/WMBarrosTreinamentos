@@ -48,23 +48,62 @@
         <p id="conteudo"></p>
     </main>
     <script>
-
         const mensagem = document.getElementById("conteudo")
         const btnCompararIdades = document.getElementById("btn_comparar_idades")
 
         btnCompararIdades.addEventListener("click", () => {
-            const nomePessoa1 = document.getElementById("nome_pessoa_1").value
-            const idadePessoa1 = document.getElementById("idade_pessoa_1").value
-            const nomePessoa2 = document.getElementById("nome_pessoa_2").value
-            const idadePessoa2 = document.getElementById("idade_pessoa_2").value
+            const CampoNomePessoa1 = document.getElementById("nome_pessoa_1")
+            const CampoIdadePessoa1 = document.getElementById("idade_pessoa_1")
+            const CampoNomePessoa2 = document.getElementById("nome_pessoa_2")
+            const CampoIdadePessoa2 = document.getElementById("idade_pessoa_2")
             let msg;
 
-            if (idadePessoa1 > idadePessoa2) {
+            if (CampoNomePessoa1.value.trim() == "") {
+                alert(`Campo NOME da Pessoa 1 está vázio!!! Por favor preencher o campo corretamente.`)
+                CampoNomePessoa1.value = ""
+                CampoNomePessoa1.focus()
+                exit
+            }else if (CampoIdadePessoa1.value.trim() == "") {
+                alert(`Campo IDADE da Pessoa 1 está vázio!!! Por favor preencher o campo corretamente.`)
+                CampoIdadePessoa1.value = ""
+                CampoIdadePessoa1.focus()
+                exit
+            }else if (isNaN(CampoIdadePessoa1.value.trim())) {
+                alert(`Campo IDADE da Pessoa 1 está com um valor que não é númerico!!! Por favor preencher o campo corretamente.`)
+                CampoIdadePessoa1.value = ""
+                CampoIdadePessoa1.focus()
+                exit
+            }else if (CampoIdadePessoa1.value.trim() <= 0) {
+                alert(`Campo IDADE da Pessoa 1 está com um valor igual ou menor que zero!!! Por favor preencher o campo corretamente.`)
+                CampoIdadePessoa1.value = ""
+                CampoIdadePessoa1.focus()
+                exit
+            }else if (CampoNomePessoa2.value.trim() == "") {
+                alert(`Campo NOME da Pessoa 2 está vázio!!! Por favor preencher o campo corretamente.`)
+                CampoNomePessoa2.value = ""
+                CampoNomePessoa2.focus()
+                exit
+            }else if (CampoIdadePessoa2.value.trim() == "") {
+                alert(`Campo IDADE da Pessoa 2 está vázio!!! Por favor preencher. o campo corretamente`)
+                CampoIdadePessoa2.value = ""
+                CampoIdadePessoa2.focus()
+                exit
+            }else if (isNaN(CampoIdadePessoa2.value.trim())) {
+                alert(`Campo IDADE da Pessoa 2 está com um valor que não é númerico!!! Por favor preencher o campo corretamente.`)
+                CampoIdadePessoa2.value = ""
+                CampoIdadePessoa2.focus()
+                exit
+            }else if (CampoIdadePessoa2.value.trim() <= 0) {
+                alert(`Campo IDADE da Pessoa 2 está com um valor igual ou menor que zero!!! Por favor preencher o campo corretamente.`)
+                CampoIdadePessoa2.value = ""
+                CampoIdadePessoa2.focus()
+                exit
+            }else if (CampoIdadePessoa1.value.trim() > CampoIdadePessoa2.value.trim()) {
                 //Pessoa 1 é mais velha
-                msg = `A(o) ${nomePessoa1} com a idade ${idadePessoa1} é o mais velho!`
-            }else if (idadePessoa1 < idadePessoa2) {
+                msg = `A(o) ${CampoNomePessoa1.value.trim()} com a idade ${CampoIdadePessoa1.value.trim()} anos é o mais velho!`
+            }else if (CampoIdadePessoa1.value.trim() < CampoIdadePessoa2.value.trim()) {
                 //Pessoa 2 é mais velha
-                msg = `A(o) ${nomePessoa2} com a idade ${idadePessoa2} é o mais velho!`
+                msg = `A(o) ${CampoNomePessoa2.value.trim()} com a idade ${CampoIdadePessoa2.value.trim()} anos é o mais velho!`
             }else {
                 //Ambas tem a mesma idade
                 msg = `Ambos possuem a mesma idade.`
