@@ -65,6 +65,56 @@
     </main>
 
     <script>
+        const CampoNome = document.getElementById("campo_nome")
+        const CampoIdade = document.getElementById("campo_idade")
+        const CampoSenha = document.getElementById("campo_senha")
+        const CampoConfirmarSenha = document.getElementById("campo_confirmar_senha")
+
+        const btnValidarCampos = document.getElementById("btn_jogar")
+
+        btnValidarCampos.addEventListener("click", () => {
+            const nome = CampoNome.value.trim()
+            const idade = CampoIdade.value.trim()
+            const senha = CampoSenha.value
+            const confirmaSenha = CampoConfirmarSenha.value
+
+            if (nome == "") {
+                alert("O campo está vazio!")
+                CampoNome.value = ""
+                CampoNome.focus()
+            }else if (idade == "") {
+                alert("O campo está vazio!")
+                CampoIdade.value = ""
+                CampoIdade.focus()
+            }else if (isNaN(idade)) {
+                alert("O campo está com valor incorreto!")
+                CampoIdade.value = ""
+                CampoIdade.focus()
+            }else if (senha == "") {
+                alert("O campo está vazio!")
+                CampoSenha.value = ""
+                CampoSenha.focus()
+            }else if (Number(senha.length) < 8) {
+                alert("O campo senha é menor que 8")
+                CampoSenha.value = ""
+                CampoSenha.focus()
+            }else if (senha != confirmaSenha) {
+                alert("As senha não conferem")
+                CampoSenha.value = ""
+                CampoConfirmarSenha.value = ""
+                CampoSenha.focus()
+            }else if (idade < 16) {
+                alert("Usuário não tem idade para jogar (menor que 16 anos)")
+                CampoIdade.value = ""
+                CampoIdade.focus()
+            }else if (idade > 16) {
+                alert("Usuário não tem idade para jogar (maior que 100 anos)")
+                CampoIdade.value = ""
+                CampoIdade.focus()
+            }else {
+                alert("Campos validados com sucesso!")
+            }
+        })
     </script>
 </body>
 
