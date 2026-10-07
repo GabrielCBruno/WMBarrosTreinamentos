@@ -79,35 +79,34 @@
             const confirmaSenha = CampoConfirmarSenha.value
 
             if (nome == "") {
-                alert("O campo está vazio!")
+                alert("O campo Nome está vazio!")
                 CampoNome.value = ""
                 CampoNome.focus()
             }else if (idade == "") {
-                alert("O campo está vazio!")
+                alert("O campo Idadeestá vazio!")
                 CampoIdade.value = ""
                 CampoIdade.focus()
             }else if (isNaN(idade)) {
-                alert("O campo está com valor incorreto!")
+                alert("O campo Idade está com valor incorreto!")
                 CampoIdade.value = ""
                 CampoIdade.focus()
             }else if (senha == "") {
-                alert("O campo está vazio!")
+                alert("O campo Senha está vazio!")
                 CampoSenha.value = ""
                 CampoSenha.focus()
             }else if (Number(senha.length) < 8) {
-                alert("O campo senha é menor que 8")
+                alert("O campo Senha é menor que 8")
                 CampoSenha.value = ""
                 CampoSenha.focus()
             }else if (senha != confirmaSenha) {
                 alert("As senha não conferem")
-                CampoSenha.value = ""
                 CampoConfirmarSenha.value = ""
-                CampoSenha.focus()
+                CampoConfirmarSenha.focus()
             }else if (idade < 16) {
                 alert("Usuário não tem idade para jogar (menor que 16 anos)")
                 CampoIdade.value = ""
                 CampoIdade.focus()
-            }else if (idade > 16) {
+            }else if (idade > 100) {
                 alert("Usuário não tem idade para jogar (maior que 100 anos)")
                 CampoIdade.value = ""
                 CampoIdade.focus()

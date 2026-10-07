@@ -39,21 +39,48 @@
                     <button type="button" class="btn success" id="btn_soma">Exiba o Resultado da Soma</button>
                 </div>
                 <br><br>
-                <div class="form-group">
-                    <label for="campo_sabor_sorvete">Qual sorvete você quer hoje?</label>
-                    <select id="campo_sabor_sorvete">
-                        <option value="">Selecione uma opção</option>
-                        <option value="Chocolate">Sorvete de Chocolate</option>
-                        <option value="Morango">Sorvete de Morango</option>
-                        <option value="Baunilha">Sorvete de Baunilha</option>
-                    </select>
-                </div>
+                <div class="form-column-item">
+                    <div class="form-group">
+                        <label for="numero1">Numero 1</label>
+                        <input type="text" id="numero1" placeholder="Content of Example 1">
+                    </div>
+                    <div class="form-column-item">
+                        <div class="form-group">
+                            <label for="numero2">Numero 2</label>
+                            <input type="text" id="numero2" placeholder="Content of Example 1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="campo_sabor_sorvete">Qual sorvete você quer hoje?</label>
+                        <select id="campo_sabor_sorvete" onchange="SelecionarSaborSorteve(this.value)">
+                            <option value="">Selecione uma opção</option>
+                            <option value="Chocolate">Sorvete de Chocolate</option>
+                            <option value="Morango">Sorvete de Morango</option>
+                            <option value="Baunilha">Sorvete de Baunilha</option>
+                        </select>
+                    </div>
             </form>
         </div>
 
     </main>
-
     <script>
+
+        const btnMensagem = document.getElementById("btn_msg")
+        const btnSoma = document.getElementById("btn_soma")
+        
+        btnMensagem.addEventListener("click", () => {
+            alert(`Você apertou o botão.`)
+        })
+
+        btnSoma.addEventListener("click", () => {
+            const numero1 = document.getElementById("numero1").value
+            const numero2 = document.getElementById("numero2").value
+            alert(`A soma entre o número ${numero1} e o ${numero2} é: ${Number(numero1) + Number(numero2)}`)
+        })
+
+        function SelecionarSaborSorteve (sabor) {
+            alert(`Você escolheu o sabor do sorvete: ${sabor}`)
+        }
     </script>
 </body>
 

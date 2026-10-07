@@ -66,6 +66,7 @@
         const CampoEmail = document.getElementById("campo_email")
         const CampoIdade = document.getElementById("campo_idade")
         const CampoSaborSorvete = document.getElementById("campo_sabor_sorvete")
+        
         const btnValidarCampos = document.getElementById("btn_validar_campos")
 
         btnValidarCampos.addEventListener("click", () => {
@@ -75,24 +76,24 @@
             const saborSorvete = CampoSaborSorvete.value
 
             if (nome == "") {
-                alert("O campo está vazio!")
+                alert("O campo Nome está vazio!")
                 CampoNome.value = ""
                 CampoNome.focus()
             }else if (email == "") {
-                alert("O campo está vazio!")
+                alert("O campo Email está vazio!")
                 CampoEmail.value = ""
                 CampoEmail.focus()
             }else if (idade == "") {
-                alert("O campo está vazio!")
+                alert("O campo Idade está vazio!")
                 CampoIdade.value = ""
                 CampoIdade.focus()
             }else if (isNaN(idade)) {
-                alert("O campo está com valor incorreto!")
+                alert("O campo Idade está com valor incorreto!")
                 CampoIdade.value = ""
                 CampoIdade.focus()
-            }else if (CampoSaborSorvete == "") {
-                alert("O campo está vazio!")
-                CampoEmail.focus()
+            }else if (saborSorvete == "") {
+                alert("O campo Sabor do Sorvete está vazio!")
+                CampoSaborSorvete.focus()
             }else {
                 alert("Campos validados com sucesso!")
             }

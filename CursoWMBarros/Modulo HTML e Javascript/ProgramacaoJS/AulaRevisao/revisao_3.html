@@ -70,6 +70,25 @@
     </main>
 
     <script>
+
+        let btnExibirMensagem = document.getElementById("btn_exibir_msg") 
+        const btnVerInfo = document.querySelector("#btn_ver_info") 
+
+
+        btnExibirMensagem.addEventListener("click", () => {
+            alert("Você clicou no botão")
+        })
+
+        btnVerInfo.addEventListener("click", () => {
+            const nome = document.querySelector("#campo_nome").value
+            const email = document.querySelector("#campo_email").value
+            const idade = document.querySelector("#campo_idade").value
+            const SaborSorvete = document.querySelector("#campo_sabor_sorvete").value
+
+            alert(`Nome: ${nome} \nEmail: ${email} \nIdade: ${idade} \nSabor de sorvete escolhido: ${SaborSorvete}`)
+        })
+
+
     </script>
 </body>
 
