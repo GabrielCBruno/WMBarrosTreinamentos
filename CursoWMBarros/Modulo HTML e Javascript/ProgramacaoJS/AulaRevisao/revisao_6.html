@@ -70,32 +70,32 @@
         const divResultado = document.getElementById("div_resultado")
 
         function validadorCampos() {
-            if (campoValor1.value == "") {
+            if (campoValor1.value.trim() == "") {
                 alert("Por favor preencher campo Valor 01!!!")
                 campoValor1.value = ""
                 campoValor1.focus()
                 return false
-            } else if (isNaN(campoValor1.value)) {
+            } else if (isNaN(campoValor1.value.trim())) {
                 alert("Por favor preencher campo Valor 01 com valores númericos, podendo ser números fracionados!").
                 campoValor1.value = ""
                 campoValor1.focus()
                 return false
-            } else if ((campoValor1.value < 0) || (campoValor1.value > 100)) {
+            } else if ((campoValor1.value.trim() < 0) || (campoValor1.value.trim() > 100)) {
                 alert("Por favor preencher campo Valor 01 com valores entre 1 e 100").
                 campoValor1.value = ""
                 campoValor1.focus()
                 return false
-            } else if (campoValor2.value == "") {
+            } else if (campoValor2.value.trim() == "") {
                 alert("Por favor preencher campo Valor 02!!!")
                 campoValor2.value = ""
                 campoValor2.focus()
                 return false
-            } else if (isNaN(campoValor2.value)) {
+            } else if (isNaN(campoValor2.value.trim())) {
                 alert("Por favor preencher campo Valor 02 com valores númericos, podendo ser números fracionados!").
                 campoValor2.value = ""
                 campoValor2.focus()
                 return false
-            } else if ((campoValor2.value < 0) || (campoValor2.value > 100)) {
+            } else if ((campoValor2.value.trim() < 0) || (campoValor2.value.trim() > 100)) {
                 alert("Por favor preencher campo Valor 02 com valores entre 1 e 100").
                 campoValor1.value = ""
                 campoValo2.focus()
@@ -106,28 +106,28 @@
 
         btnAdicionar.addEventListener("click", () => {
             if (validadorCampos()) {
-                const soma = Number(campoValor1.value) + Number(campoValor2.value)
-                divResultado.innerHTML = `A soma entre os valores ${campoValor1.value} e ${campoValor2.value} é: ${soma}`
+                const soma = Number(campoValor1.value.trim()) + Number(campoValor2.value.trim())
+                divResultado.innerHTML = `A soma entre os valores ${campoValor1.value.trim()} e ${campoValor2.value.trim()} é: ${soma}`
             }
         })
         
         btnSubtrair.addEventListener("click", () => {
             if (validadorCampos()) {
-                const subtracao = Number(campoValor1.value) - Number(campoValor2.value)
-                divResultado.innerHTML = `A subtração entre os valores ${campoValor1.value} e ${campoValor2.value} é: ${subtracao}`
+                const subtracao = Number(campoValor1.value.trim()) - Number(campoValor2.value.trim())
+                divResultado.innerHTML = `A subtração entre os valores ${campoValor1.value.trim()} e ${campoValor2.value.trim()} é: ${subtracao}`
             }
         })
 
         btnDividir.addEventListener("click", () => {
             if (validadorCampos()) {
-                const divisao = Number(campoValor1.value) / Number(campoValor2.value)
-                divResultado.innerHTML = `A divisão entre os valores ${campoValor1.value} e ${campoValor2.value} é: ${divisao}`
+                const divisao = Number(campoValor1.value.trim()) / Number(campoValor2.value.trim())
+                divResultado.innerHTML = `A divisão entre os valores ${campoValor1.value.trim()} e ${campoValor2.value.trim()} é: ${divisao}`
             }
         })
 
         btnMultiplicar.addEventListener("click", () => {
             if (validadorCampos()) {
-                const multiplicacao = Number(campoValor1.value) * Number(campoValor2.value)
+                const multiplicacao = Number(campoValor1.value.trim()) * Number(campoValor2.value.trim())
                 divResultado.innerHTML = `A multiplicação entre os valores ${campoValor1.value} e ${campoValor2.value} é: ${multiplicacao}`
             }
         })
