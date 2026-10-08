@@ -20,56 +20,46 @@
         <h2>Exemplo 2 - Operadores Lógicos</h2>
         <form action="#">
             <div class="form-columns">
-                <div class="form-column-item">
-                    <div class="form-group">
-                        <label for="numero1">Numero 1</label>
-                        <input type="text" id="numero1" placeholder="Digite o número 1 aqui...">
-                    </div>
+                <div class="form-group">
+                    <label for="numero_inicial">Numero inicial</label>
+                    <input type="text" id="numero_inicial" placeholder="Digite o número inicial aqui...">
                 </div>
-                <div class="form-column-item">
-                    <div class="form-group">
-                        <label for="numero2">Numero 2</label>
-                        <input type="text" id="numero2" placeholder="Digite o número 2 aqui...">
-                    </div>
+                <div class="form-group">
+                    <label for="numero_meio">Numero do meio</label>
+                    <input type="text" id="numero_meio" placeholder="Digite o número do meio aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="numero_final">Numero final</label>
+                    <input type="text" id="numero_final" placeholder="Digite o número final aqui...">
                 </div>
             </div>
-            <button type="submit" id="btn_multiplicar" class="btn success">Multiplicar</button>
-            <button type="submit" id="btn_dividir" class="btn success">Dividir</button>
-            <button type="submit" id="btn_subtrair" class="btn success">Subtrair</button>
-            <button type="submit" id="btn_somar" class="btn success">Somar</button>
+            <button type="submit" id="btn_verificar_intervalo" class="btn success">Verificar intervalo</button>
+            <p id="msg"></p>
         </form>
     </main>
     <script>
 
-        const btnMultiplicar = document.querySelector("#btn_multiplicar")
-        const btnDividir = document.querySelector("#btn_dividir")
-        const btnSubtrair = document.querySelector("#btn_subtrair")
-        const btnSomar = document.querySelector("#btn_somar")
+        const btnVerificarIntervalo = document.querySelector("#btn_verificar_intervalo")
+        const msgMostrar = document.querySelector("#msg")
 
-        const numero1 = document.getElementById("numero1")
-        const numero2 = document.getElementById("numero2")
-        let resultado
+        btnVerificarIntervalo.addEventListener("click", () => {
+            const inicial = document.getElementById("numero_inicial").value.trim()
+            const meio = document.getElementById("numero_meio").value.trim()
+            const final = document.getElementById("numero_final").value.trim()
 
-        btnSomar.addEventListener("click", () => {
-            resultado = Number(numero1.value) + Number(numero2.value)
-            alert(`Subtração: ${resultado}`)
+            if (inicial == "" || meio == "" || final == "") {
+                alert("PREENCHA TODOS OS CAMPOS")
+            } else if (isNaN(inicial) || isNaN(meio) || isNaN(final)) {
+                alert("Preencha os campos SOMENTES COM NÚMEROS")
+            } else {
+                if (Number(meio) >= Number(inicial) && Number(meio) <= Number(final)) {
+                    msgMostrar.innerHTML = `O número ${meio} está entre o valor ${inicial} e ${final}`
+                } else {
+                    msgMostrar.innerHTML = `O número ${meio} NÃO está entre o valor ${inicial} e ${final}`
+                }
+            }
         })
 
-        btnSubtrair.addEventListener("click", () => {
-            resultado = numero1.value - numero2.value
-            alert(`Subtração: ${resultado}`)
-        })
-
-        btnDividir.addEventListener("click", () => {
-            resultado = numero1.value / numero2.value
-            alert(`Divisão: ${resultado.toFixed(2)}`)
-        })
-
-
-        btnMultiplicar.addEventListener("click", () => {
-            resultado = numero1.value * numero2.value
-            alert(`Multiplicação: ${resultado}`)
-        })
 
     </script>
 </body>
