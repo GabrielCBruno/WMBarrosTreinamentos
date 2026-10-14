@@ -73,7 +73,7 @@
                 campoSeletorConversao.focus()
             }else if (seletorConversao == "CF") {
                 temperaturaConvertida = (Number(temperatura) * 9/5) + 32
-                msg.innerHTML = `Realizado a conversão da temperatura ${temperatura} (Celsius) para Fahrenheit: ${temperaturaConvertida}°F.`
+                msg.innerHTML = `Realizado a conversão da temperatura ${temperatura} Celsius para Fahrenheit: ${temperaturaConvertida}°F.`
                 if (temperaturaConvertida > 50 && temperaturaConvertida < 86) {
                     msg.style.color = "green"
                     imagem.style.display = "none"
@@ -87,8 +87,8 @@
                     imagem.src = "imagens_exercicios/temperaturaFrio.jpg"
                 }
             }else {
-                temperaturaConvertida = (temperatura - 32) * 5/9
-                msg.innerHTML = `Realizado a conversão da temperatura ${temperatura} (Fahrenheit) para Celsius: ${temperaturaConvertida}°C.`
+                temperaturaConvertida = (Number(temperatura) - 32) * 5/9
+                msg.innerHTML = `Realizado a conversão da temperatura ${temperatura} Fahrenheit para Celsius: ${temperaturaConvertida}°C.`
                 if (temperaturaConvertida > 10 && temperaturaConvertida < 30) {
                     msg.style.color = "green"
                     imagem.style.display = "none"
