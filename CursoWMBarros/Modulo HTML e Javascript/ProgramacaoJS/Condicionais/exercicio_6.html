@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6 - Classificação de idade em faixa etária</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!--• • 
+    • Input: idade, botão “Classificar”.
+    • Use condicionais:
+     Se idade < 12 → exibir em <p> “Criança” em azul
+     Se 12 ≤ idade < 18 → “Adolescente” em laranja
+     Se 18 ≤ idade < 60 → “Adulto” em verde
+     Se idade ≥ 60 → “Idoso” em roxo
+    -->
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exercicio 6 - Classificação de idade em faixa etária</h2>
+        <div class="form-group">
+            <label for="idade">Idade</label>
+            <input type="text" id="idade" placeholder="Digite a sua idade aqui... Ex: 18">
+        </div>
+        <p id="resultadoIdade"></p>
+        <img src="" alt="icone de fases da vida de um humano" id="imagem" style="display: none;">
+        <br>
+        <button type="submit" id="btn_classificar" class="btn success">Classificar</button>
+    </main>
+    <script>
+        const btnClassificar = document.getElementById("btn_classificar")
+        const msg = document.getElementById("resultadoIdade")
+        const idade = document.getElementById("idade")
+        const imagem = document.getElementById("imagem")
+
+        function limparCampo() {
+            idade.value = ""
+            idade.focus()
+        }
+        
+        btnClassificar.addEventListener("click", () => {
+            
+            if (idade.value.trim() == "") {
+                alert("Por favor preencher o campo idade!!!")
+                limparCampo()
+            }else if (isNaN(idade.value.trim())) {
+                alert("Por favor preencher o campo idade com um valor numérico!!!")
+                limparCampo()
+            }else if (idade.value.trim() <= 0 || idade.value.trim() > 122) {
+                alert("Por favor preencher a idade com uma valor acima de zero e menor que 122!!!")
+                limparCampo()
+            }else{
+                if (idade.value.trim() >= 60) {
+                    msg.innerHTML = `Você tem a idade ${idade.value.trim()} anos, classificação: IDOSO`
+                    msg.style.color = "purple"
+                    imagem.style.display = "inline"
+                    imagem.src = "imagens_exercicios/idoso.jpg"
+                }else if (idade.value.trim() >= 18) {
+                    msg.innerHTML = `Você tem a idade ${idade.value.trim()} anos, classificação: ADULTO`
+                    msg.style.color = "green"
+                    imagem.style.display = "inline"
+                    imagem.src = "imagens_exercicios/adulto.jpg"
+                }else if (idade.value.trim() >= 12) {
+                    msg.innerHTML = `Você tem a idade ${idade.value.trim()} anos, classificação: ADOLESCENTE`
+                    msg.style.color = "orange"
+                    imagem.style.display = "inline"
+                    imagem.src = "imagens_exercicios/adolescente.jpg"
+                }else {
+                    msg.innerHTML = `Você tem a idade ${idade.value.trim()} anos, classificação: CRIANCA`
+                    msg.style.color = "blue"
+                    imagem.style.display = "inline"
+                    imagem.src = "imagens_exercicios/crianca.jpg"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

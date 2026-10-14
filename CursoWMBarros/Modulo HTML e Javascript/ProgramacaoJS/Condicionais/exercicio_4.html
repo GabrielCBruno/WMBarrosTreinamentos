@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4 - Calcular IMC com classificação por cor</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!--• • 
+    Crie dois inputs numéricos: peso (kg) e altura (m), e um botão “Calcular
+    IMC”. Use addEventListener para associar a ação ao botão. Calcule o IMC: imc
+    = peso / (altura * altura).
+    • Exiba o resultado em um <p id="resultadoImc">, com duas casas decimais.
+    • Aplique cor conforme a classificação:
+     IMC < 18.5 → texto “Abaixo do peso” em laranja
+     18.5 ≤ IMC < 25 → “Peso normal” em verde
+     25 ≤ IMC < 30 → “Sobrepeso” em “cinza”
+     IMC ≥ 30 → “Obesidade” em vermelho
+    -->
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exercicio 4 - Calcular IMC com classificação por cor</h2>
+        <div class="form-group">
+            <label for="peso_pessoa">Peso</label>
+            <input type="text" id="peso_pessoa" placeholder="Digite o seu peso (em kg) aqui... Ex: 70">
+        </div>
+        <div class="form-group">
+            <label for="altura_pessoa">Altura</label>
+            <input type="text" id="altura_pessoa" placeholder="Digite a sua altura (em m) aqui... Ex: 1.75">
+        </div>
+        <p id="resultadoIMC"></p>
+        <button type="submit" id="btn_calcular_imc" class="btn success">Calcular IMC</button>
+    </main>
+    <script>
+        const btnCalcularImc = document.getElementById("btn_calcular_imc")
+        const msg = document.getElementById("resultadoIMC")
+
+        btnCalcularImc.addEventListener("click", () => {
+            const peso = document.getElementById("peso_pessoa").value.trim()            
+            const altura = document.getElementById("altura_pessoa").value.trim()
+
+            if (peso == "" || altura == "") {
+                alert("Por favor preencher os campos!!!")
+            }else if (isNaN(peso) || isNaN(altura)) {
+                alert("Por favor preencher os campos com valores numericos!!!")
+            }else if (peso <= 0 || altura <= 0) {
+                alert("Por favor preencher os campos altura e peso maior que zero!!!")
+            }else {
+                const imc = Number(peso)/(Number(altura) * Number(altura))
+                if (imc >= 30) {
+                    msg.innerHTML = `Seu imc é ${imc}, de acordo com o seu imc você está classificado como OBSESIDADE`
+                    msg.style.color = "red"
+                }else if (imc >= 25) {
+                    msg.innerHTML = `Seu imc é ${imc}, de acordo com o seu imc você está classificado como SOBREPESO`
+                    msg.style.color = "gray"
+                }else if (imc >= 18.5) {
+                    msg.innerHTML = `Seu imc é ${imc}, de acordo com o seu imc você está classificado como PESO NORMAL`
+                    msg.style.color = "green"
+                }else {
+                    msg.innerHTML = `Seu imc é ${imc}, de acordo com o seu imc você está classificado como ABAIXO DO PESO`
+                    msg.style.color = "orange"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5 - Conversor de Temperatura</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!--• • 
+    Crie um input numérico para digitar a temperatura.
+    Crie um select com duas opções:
+     "CF" (converter Celsius para Fahrenheit)
+     "FC" (converter Fahrenheit para Celsius)
+    • Crie um botão “Converter”.
+    • Ao clicar, use addEventListener para capturar a opção selecionada:
+     Se for C → F: aplique a fórmula F = (C * 9/5) + 32
+     Se for F → C: aplique a fórmula C = (F - 32) * 5/9
+     Mostre o resultado em um <p id="resultadoTemp">.
+    - Aplique cor:
+    o Temperaturas altas (≥ 30°C ou ≥ 86°F) → vermelho
+    o Temperaturas baixas (≤ 10°C ou ≤ 50°F) → azul
+    o Caso intermediário → verde
+    -->
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exercicio 5 - Conversor de Temperatura</h2>
+        <div class="form-group">
+            <label for="temperatura">Temperatura</label>
+            <input type="text" id="temperatura" placeholder="Digite a temperatura em (Celsius ou Fahrenheit)... Ex: 32">
+        </div>
+        <select id="opcao_temperatura">
+            <option value="">Selecione uma opção</option>
+            <option value="CF">converter Celsius para Fahrenheit</option>
+            <option value="FC">Converter Fahrenheit para Celsius</option>
+        </select>
+        <p id="resultadoTemp"></p>
+        <img src="" alt="icone de fases da vida de um humano" id="imagem" style="display: none;">
+        <br>
+        <button type="submit" id="btn_converter_temperatura" class="btn success">Converter</button>
+    </main>
+    <script>
+        const btnConverterTemperatura = document.getElementById("btn_converter_temperatura")
+        const msg = document.getElementById("resultadoTemp")
+        const campoTemperatura = document.getElementById("temperatura")
+        const campoSeletorConversao = document.getElementById("opcao_temperatura")
+        const imagem = document.getElementById("imagem")
+
+        btnConverterTemperatura.addEventListener("click", () => {
+            const temperatura = campoTemperatura.value.trim()
+            const seletorConversao = campoSeletorConversao.value
+            let temperaturaConvertida
+        
+            if (temperatura == "") {
+                alert("Por favor preencher o campo temperatura!!!")
+                campoTemperatura.value = ""
+                campoTemperatura.focus()
+            }else if (isNaN(temperatura)) {
+                alert("Por favor preencher o campo temperatura com um valor numérico!!!")
+                campoTemperatura.value = ""
+                campoTemperatura.focus()
+            }else if (seletorConversao == "") {
+                alert("Por favor escolher uma opção para estar realizando a conversão!!!")
+                campoSeletorConversao.focus()
+            }else if (seletorConversao == "CF") {
+                //CF - Se for C → F: aplique a fórmula F = (C * 9/5) + 32
+                temperaturaConvertida = (Number(temperatura) * 9/5) + 32
+                msg.innerHTML = `Realizado a conversão da temperatura ${temperatura} (Celsius) para Fahrenheit: ${temperaturaConvertida}°F.`
+                if (temperaturaConvertida > 50 && temperaturaConvertida < 86) {
+                    msg.style.color = "green"
+                    imagem.style.display = "none"
+                }else if (temperaturaConvertida >= 86) {
+                    msg.style.color = "red"
+                    imagem.style.display = "inline"
+                    imagem.src = "imagens_exercicios/temperaturaQuente.jpg"
+                }else {
+                    msg.style.color = "blue"
+                    imagem.style.display = "inline"
+                    imagem.src = "imagens_exercicios/temperaturaFrio.jpg"
+                }
+            }else {
+                temperaturaConvertida = (temperatura - 32) * 5/9
+                msg.innerHTML = `Realizado a conversão da temperatura ${temperatura} (Fahrenheit) para Celsius: ${temperaturaConvertida}°C.`
+                if (temperaturaConvertida > 10 && temperaturaConvertida < 30) {
+                    msg.style.color = "green"
+                    imagem.style.display = "none"
+                }else if (temperaturaConvertida >= 30) {
+                    msg.style.color = "red"
+                    imagem.style.display = "inline"
+                    imagem.src = "imagens_exercicios/temperaturaQuente.jpg"
+                }else {
+                    msg.style.color = "blue"
+                    imagem.style.display = "inline"
+                    imagem.src = "imagens_exercicios/temperaturaFrio.jpg"
+                }
+            }
+            
+        })
+    </script>
+</body>
+
+</html>
