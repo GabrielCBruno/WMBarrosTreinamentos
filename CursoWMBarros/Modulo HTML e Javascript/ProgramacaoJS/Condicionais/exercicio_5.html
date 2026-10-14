@@ -72,7 +72,6 @@
                 alert("Por favor escolher uma opção para estar realizando a conversão!!!")
                 campoSeletorConversao.focus()
             }else if (seletorConversao == "CF") {
-                //CF - Se for C → F: aplique a fórmula F = (C * 9/5) + 32
                 temperaturaConvertida = (Number(temperatura) * 9/5) + 32
                 msg.innerHTML = `Realizado a conversão da temperatura ${temperatura} (Celsius) para Fahrenheit: ${temperaturaConvertida}°F.`
                 if (temperaturaConvertida > 50 && temperaturaConvertida < 86) {
