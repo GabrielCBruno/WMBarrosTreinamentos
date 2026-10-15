@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 2 - Operadores Lógicos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exemplo 2 - Operadores Lógicos</h2>
+        <form action="#">
+            <div class="form-columns">
+                <div class="form-group">
+                    <label for="numero_inicial">Numero inicial</label>
+                    <input type="text" id="numero_inicial" placeholder="Digite o número inicial aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="numero_meio">Numero do meio</label>
+                    <input type="text" id="numero_meio" placeholder="Digite o número do meio aqui...">
+                </div>
+                <div class="form-group">
+                    <label for="numero_final">Numero final</label>
+                    <input type="text" id="numero_final" placeholder="Digite o número final aqui...">
+                </div>
+            </div>
+            <button type="submit" id="btn_verificar_intervalo" class="btn success">Verificar intervalo</button>
+            <p id="msg"></p>
+        </form>
+    </main>
+    <script>
+
+        const btnVerificarIntervalo = document.querySelector("#btn_verificar_intervalo")
+        const msgMostrar = document.querySelector("#msg")
+
+        btnVerificarIntervalo.addEventListener("click", () => {
+            const inicial = document.getElementById("numero_inicial").value.trim()
+            const meio = document.getElementById("numero_meio").value.trim()
+            const final = document.getElementById("numero_final").value.trim()
+
+            if (inicial == "" || meio == "" || final == "") {
+                alert("PREENCHA TODOS OS CAMPOS")
+            } else if (isNaN(inicial) || isNaN(meio) || isNaN(final)) {
+                alert("Preencha os campos SOMENTES COM NÚMEROS")
+            } else {
+                if (Number(meio) >= Number(inicial) && Number(meio) <= Number(final)) {
+                    msgMostrar.innerHTML = `O número ${meio} está entre o valor ${inicial} e ${final}`
+                } else {
+                    msgMostrar.innerHTML = `O número ${meio} NÃO está entre o valor ${inicial} e ${final}`
+                }
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

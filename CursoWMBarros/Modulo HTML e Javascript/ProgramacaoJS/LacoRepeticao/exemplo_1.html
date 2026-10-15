@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1 - Operadores Relacionais</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exemplo 1 - FOR</h2>
+        <div class="form-group">
+            <label for="frase">Digite a frase que deseja repetir</label>
+            <input type="text" id="frase" placeholder="Digite a frase aqui...">
+        </div>
+        <div class="form-group">
+            <label for="qtd_repetir">Quantidade de vezes que deseja repetir</label>
+            <input type="text" id="qtd_repetir" placeholder="Digite a quantidade de vezes que vai ser repetido aqui...">
+        </div>
+        <p id="msg"></p>
+        <button type="submit" id="btn_repetir" class="btn success">Repetir</button>
+    </main>
+    <script>
+
+        const btnRepetir = document.getElementById("btn_repetir")
+        const msgFinal = document.getElementById("msg")
+
+        btnRepetir.addEventListener("click", () => {
+            let resultado = ""
+            const frase = document.getElementById("frase").value.trim()
+            const qtdRepeticao = parseInt(document.getElementById("qtd_repetir").value.trim())
+
+            for (let i = 0; i < qtdRepeticao; i++) {
+                resultado += `${frase} <br>`
+            }
+
+            msgFinal.innerHTML = resultado
+        })
+
+    </script>
+</body>
+
+</html>
