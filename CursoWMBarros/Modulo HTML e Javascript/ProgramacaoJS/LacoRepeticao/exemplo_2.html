@@ -17,50 +17,29 @@
     </header>
 
     <main class="main-content">
-        <h2>Exemplo 2 - Operadores Lógicos</h2>
-        <form action="#">
-            <div class="form-columns">
-                <div class="form-group">
-                    <label for="numero_inicial">Numero inicial</label>
-                    <input type="text" id="numero_inicial" placeholder="Digite o número inicial aqui...">
-                </div>
-                <div class="form-group">
-                    <label for="numero_meio">Numero do meio</label>
-                    <input type="text" id="numero_meio" placeholder="Digite o número do meio aqui...">
-                </div>
-                <div class="form-group">
-                    <label for="numero_final">Numero final</label>
-                    <input type="text" id="numero_final" placeholder="Digite o número final aqui...">
-                </div>
-            </div>
-            <button type="submit" id="btn_verificar_intervalo" class="btn success">Verificar intervalo</button>
-            <p id="msg"></p>
-        </form>
+        <h2>Exemplo 2 - WHILE</h2>
+        <button type="submit" id="btn_jogo" class="btn success">Iniciar o jogo</button>
     </main>
     <script>
 
-        const btnVerificarIntervalo = document.querySelector("#btn_verificar_intervalo")
-        const msgMostrar = document.querySelector("#msg")
+        const numeroSecreto = 7
+        const btnVerificarIntervalo = document.querySelector("#btn_jogo")
 
         btnVerificarIntervalo.addEventListener("click", () => {
-            const inicial = document.getElementById("numero_inicial").value.trim()
-            const meio = document.getElementById("numero_meio").value.trim()
-            const final = document.getElementById("numero_final").value.trim()
+            let qtdTentativas = 0
+            let palpite = 0
 
-            if (inicial == "" || meio == "" || final == "") {
-                alert("PREENCHA TODOS OS CAMPOS")
-            } else if (isNaN(inicial) || isNaN(meio) || isNaN(final)) {
-                alert("Preencha os campos SOMENTES COM NÚMEROS")
-            } else {
-                if (Number(meio) >= Number(inicial) && Number(meio) <= Number(final)) {
-                    msgMostrar.innerHTML = `O número ${meio} está entre o valor ${inicial} e ${final}`
+            while (palpite != numeroSecreto) {
+                qtdTentativas++
+                palpite = prompt("Digite um número")
+
+                if (palpite == numeroSecreto) {
+                    alert(`Acertou o número!!! Suas tentativas foram ${qtdTentativas}`)
                 } else {
-                    msgMostrar.innerHTML = `O número ${meio} NÃO está entre o valor ${inicial} e ${final}`
+                    alert("Errou!!!")
                 }
             }
         })
-
-
     </script>
 </body>
 
