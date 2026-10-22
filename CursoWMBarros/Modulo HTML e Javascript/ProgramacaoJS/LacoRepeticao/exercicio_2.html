@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1 - Gerar Tabuada</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exemplo 1 - Gerar Tabuada</h2>
+        <div class="form-group">
+            <label for="numero">Gere a tabuada</label>
+            <input type="text" id="numero" placeholder="Digite um numero...">
+        </div>
+        <button type="submit" id="btn_gerar" class="btn success">Gerar</button>
+        <p id="msg"></p>
+    </main>
+    <script>
+
+        const btnGerar = document.getElementById("btn_gerar")
+        const msg = document.getElementById("msg")
+        const campoNumero = document.getElementById("numero")
+
+        btnGerar.addEventListener("click", () => {
+            let resultadoFinal = ""
+            const numero = CampoNumero.value
+
+            for (i = 1; i <= 10; i++) {
+                resultadoFinal += `${numero} X ${i} = ${i * numero} <br>`
+            }
+            msg.innerHTML = resultadoFinal
+        })
+
+    </script>
+</body>
+
+</html>
