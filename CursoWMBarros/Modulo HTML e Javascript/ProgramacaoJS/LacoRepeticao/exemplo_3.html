@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo 3 - DO WHILE</title>
+    <title>Exemplo 3 - Laço de repetição DO WHILE</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -17,7 +17,7 @@
     </header>
 
     <main class="main-content">
-        <h2>Exemplo 3 - DO WHILE</h2>
+        <h2>Exemplo 3 - Laço de repetição DO WHILE</h2>
         <button type="submit" id="btn_jogo" class="btn success">Iniciar o jogo</button>
     </main>
     <script>
@@ -27,12 +27,11 @@
 
 
         btnVerificarIntervalo.addEventListener("click", () => {
-            let qtdTentativas = 0
-            let palpite
-
+            let qtdTentativas = 0, palpite
+         
             do {
                 qtdTentativas++
-                palpite = prompt("Digite o número")
+                palpite = prompt("Qual o seu palpite ?")
 
                 if (palpite == numeroSecreto) {
                     alert(`Acertou o número!!! Suas tentativas foram ${qtdTentativas}`)
