@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4 - Validação de Senha</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exercicio 4 - Validação de Senha</h2>
+        <button type="submit" id="btn_validar" class="btn success">Validar</button>
+    </main>
+    <script>
+        const senhaCorreta = "senha123"
+        const btnValidar = document.getElementById("btn_validar")
+
+        btnValidar.addEventListener("click", () => {
+            let senha = ""
+            let tentativas = 0
+            
+            while (senha != senhaCorreta) {
+                senha = prompt("Digite a sua senha")
+
+                if (senha != senhaCorreta) {
+                    tentativas++
+                    alert("A senha digitada está incorreta!!!")
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

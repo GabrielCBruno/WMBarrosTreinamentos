@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3 - Contagem Progressiva</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exercicio 3 - Contagem Progressiva</h2>
+        <div class="form-group">
+            <label for="numero">Numero</label>
+            <input type="text" id="numero" placeholder="Digite um numero para a contagem">
+        </div>
+        <button type="submit" id="btn_contagem" class="btn success">Iniciar Contagem</button>
+        <p id="msg"></p>
+    </main>
+    <script>
+
+        const btnContagem = document.getElementById("btn_contagem")
+        const paragrafo = document.getElementById("msg")
+
+        btnContagem.addEventListener("click", () => {
+            const numero = document.getElementById("numero").value.trim()
+            let resultado = `Constagem do número 0 ao número ${numero} <br>`
+
+            for (i = 0; i <= numero; i++) {
+                resultado = resultado + `Número ${i} <br>`
+            }
+            
+            paragrafo.innerHTML = resultado
+        })
+
+    </script>
+</body>
+
+</html>
