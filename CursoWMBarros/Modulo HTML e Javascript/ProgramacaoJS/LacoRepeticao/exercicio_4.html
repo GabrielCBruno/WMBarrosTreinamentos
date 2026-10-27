@@ -26,14 +26,21 @@
 
         btnValidar.addEventListener("click", () => {
             let senha = ""
-            let tentativas = 0
+            let tentativas = 3
             
             while (senha != senhaCorreta) {
                 senha = prompt("Digite a sua senha")
 
                 if (senha != senhaCorreta) {
-                    tentativas++
-                    alert("A senha digitada está incorreta!!!")
+                    tentativas--
+                    alert(`A senha digitada está incorreta!!! Tentativas: ${tentativas}.`)
+                }else {
+                    alert("Login realizado com sucesso!!!")
+                }
+
+                if (tentativas == 0) {
+                    alert("A senha foi digitada incorretamente 3 vezes, encerrando tentativas!!!")
+                    return ""
                 }
             }
         })
