@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1 - Arrays</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exemplo 1 - Arrays</h2>
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Digite o seu nome aqui...">
+        </div>
+        <div class="form-group">
+            <label for="idade">Idade</label>
+            <input type="text" id="idade" placeholder="Digite a sua idade aqui...">
+        </div>
+        <p id="msg_exibir"></p>
+        <button type="submit" id="btn_adicionar" class="btn success">Adicionar</button>
+        <button type="submit" id="btn_exibir" class="btn success">Exibir</button>
+        <button type="submit" id="btn_exibir18" class="btn success">Exibir pessoas maior que 18 anos</button>
+    </main>
+    <script>
+
+        const btnAdicionar = document.getElementById("btn_adicionar")
+        const btnExibir = document.getElementById("btn_exibir")
+        const btnExibir18 = document.getElementById("btn_exibir18")
+        const campoNome = document.getElementById("nome")
+        const campoIdade = document.getElementById("idade")
+        const msg = document.getElementById("msg_exibir")
+        let nomes = [] //Para declarar arrays tem que fazer a variavel receber "[]". Array: é uma variável que armazena mais de um valor.
+        let idades = []
+
+        btnAdicionar.addEventListener("click", () => {
+           nomes.push(campoNome.value) //função "push()" adiciona um novo valor ao array. Obs: vai ser salvo sempre na última posição (começando em 0)
+           campoNome.value = ""
+           campoNome.focus()
+
+           idades.push(campoIdade.value)
+           campoIdade.value = ""
+
+           console.log(nomes, idades)
+        })
+
+        btnExibir.addEventListener("click", () => {
+
+            let nomesExibir = ""
+
+            for (let i = 0; i < nomes.length; i++) {
+                nomesExibir += `<br> ${nomes[i]}, idade ${idades[i]}`
+            }
+
+            msg.innerHTML = nomesExibir
+            
+        })
+
+        btnExibir18.addEventListener("click", () => {
+
+            let nomesExibir = ""
+
+            for (let i = 0; i < nomes.length; i++) {
+                if (idades[i] > 18) {
+                    nomesExibir += `<br> ${nomes[i]}, idade ${idades[i]}`
+                }
+            }
+
+            msg.innerHTML = nomesExibir
+            
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 3 - Arrays e Objetos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exemplo 3 - Arrays e Objetos</h2>
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Digite o seu nome aqui...">
+        </div>
+        <div class="form-group">
+            <label for="idade">Idade</label>
+            <input type="text" id="idade" placeholder="Digite a sua idade aqui...">
+        </div>
+        <div class="form-group">
+            <label for="rua">Rua</label>
+            <input type="text" id="rua" placeholder="Digite a sua rua aqui...">
+        </div>
+        <p id="msg_exibir"></p>
+        <button type="submit" id="btn_adicionar" class="btn success">Adicionar</button>
+        <button type="submit" id="btn_exibir" class="btn success">Exibir</button>
+
+    </main>
+    <script>
+
+        const btnAdicionar = document.getElementById("btn_adicionar")
+        const btnExibir = document.getElementById("btn_exibir")
+        const campoNome = document.getElementById("nome")
+        const campoIdade = document.getElementById("idade")
+        const campoRua = document.getElementById("rua")
+        const msg = document.getElementById("msg_exibir")
+        let pessoa = {} //Para declarar um objeto usasse "{}"
+        let listaPessoas = [] //Para declarar um array usasse "[]"
+
+        btnAdicionar.addEventListener("click", () => {
+            pessoa = { 
+                // <nome da variavel> : <valor que vai ser armazenado>, (adicionar "," para separar os atributos, exceto no último)
+                nome: campoNome.value,
+                idade: campoIdade.value,
+                rua: campoRua.value
+            }
+
+            campoNome.value = ""
+            campoIdade.value = ""
+            campoRua.value = ""
+
+            campoNome.focus()
+            
+            listaPessoas.push(pessoa)
+
+            console.log(listaPessoas)
+        })
+
+        btnExibir.addEventListener("click", () => {
+
+            let resultado = ""
+
+            listaPessoas.forEach(item => { 
+                //Função forEach percorre todos os valores de um array, capturando cada informação (item). Sintaxe: .forEach(<nome da variavel para guardar informação de cada index> => {<trecho de código>}).
+                resultado += `Nome: ${item.nome}, sua idade é: ${item.idade}, sua rua é: ${item.rua} <br>`
+            })
+
+            msg.innerHTML = resultado
+
+        })
+
+    </script>
+</body>
+
+</html>
