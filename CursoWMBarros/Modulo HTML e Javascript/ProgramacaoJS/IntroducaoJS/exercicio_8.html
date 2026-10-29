@@ -27,18 +27,18 @@
             <option value="Difícil">Difícil</option>
         </select>
 
-        <img src="../imagens/heroiFacil.png" alt="imagem" id="imagem">
+        <img src="imagens/heroiFacil.png" alt="imagem" id="imagem">
     </main>
     <script>
         const img = document.querySelector("#imagem")
         function mudarCor(dificuldadeEscolhida) {
             alert("Você selecionou o nível de dificuldade: " + dificuldadeEscolhida);
             if (dificuldadeEscolhida == "Fácil") {
-                img.src = "../imagens/heroiFacil.png";
+                img.src = "imagens/heroiFacil.png";
             }else if (dificuldadeEscolhida == "Médio") {
-                img.src = "../imagens/heroiMedio.png";
+                img.src = "imagens/heroiMedio.png";
             }else {
-                img.src = "../imagens/heroiDificil.png";
+                img.src = "imagens/heroiDificil.png";
             }
         }
     </script>
