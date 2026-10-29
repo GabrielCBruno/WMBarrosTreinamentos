@@ -29,18 +29,19 @@
         <p id="msg_exibir"></p>
         <button type="submit" id="btn_adicionar" class="btn success">Adicionar</button>
         <button type="submit" id="btn_exibir" class="btn success">Exibir</button>
-        <button type="submit" id="btn_exibir18" class="btn success">Exibir pessoas maior que 18 anos</button>
+        <button type="submit" id="btn_exibir_18" class="btn success">Exibir pessoas maior que 18 anos</button>
     </main>
     <script>
 
         const btnAdicionar = document.getElementById("btn_adicionar")
         const btnExibir = document.getElementById("btn_exibir")
-        const btnExibir18 = document.getElementById("btn_exibir18")
+        const btnExibir18 = document.getElementById("btn_exibir_18")
         const campoNome = document.getElementById("nome")
         const campoIdade = document.getElementById("idade")
         const msg = document.getElementById("msg_exibir")
         let nomes = [] //Para declarar arrays tem que fazer a variavel receber "[]". Array: é uma variável que armazena mais de um valor.
         let idades = []
+        let nomesExibir
 
         btnAdicionar.addEventListener("click", () => {
            nomes.push(campoNome.value) //função "push()" adiciona um novo valor ao array. Obs: vai ser salvo sempre na última posição (começando em 0)
@@ -55,7 +56,7 @@
 
         btnExibir.addEventListener("click", () => {
 
-            let nomesExibir = ""
+            nomesExibir = "Lista de nomes:"
 
             for (let i = 0; i < nomes.length; i++) {
                 nomesExibir += `<br> ${nomes[i]}, idade ${idades[i]}`
@@ -67,7 +68,7 @@
 
         btnExibir18.addEventListener("click", () => {
 
-            let nomesExibir = ""
+            nomesExibir = "Maiores de idade:"
 
             for (let i = 0; i < nomes.length; i++) {
                 if (idades[i] > 18) {
@@ -76,8 +77,8 @@
             }
 
             msg.innerHTML = nomesExibir
-            
         })
+
 
     </script>
 </body>
