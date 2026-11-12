@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1 - Compras de Produtos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exemplo 1 - Compras de Produtos</h2>
+        <div class="form-group">
+            <label for="produto">Nome</label>
+            <input type="text" id="produto" placeholder="Ex: Feijão">
+        </div>
+        <button type="submit" id="btn_adicionar" class="btn success">Adicionar</button>
+        <button type="submit" id="btn_exibir" class="btn success">Exibir</button>
+        <p id="msg"></p>
+        <ul id="lista"></ul>
+    </main>
+    <script>
+
+        const btnAdicionar = document.getElementById("btn_adicionar")
+        const btnExibir = document.getElementById("btn_exibir")
+        const campoProduto = document.getElementById("produto")
+        const msg = document.getElementById("msg")
+        const lista = document.getElementById("lista")
+
+        let listaDeCompras = []
+
+        btnAdicionar.addEventListener("click", () => {
+            
+            listaDeCompras.push(campoProduto.value)
+
+            campoProduto.value = ""
+            campoProduto.focus()
+        })
+
+        btnExibir.addEventListener("click", () => {
+            msg.innerHTML = "Sua lista de compras: "
+
+            let textoLista = ""
+
+            listaDeCompras.forEach(item => {
+                textoLista = textoLista + `<li>${item}</li>`
+            })
+
+            lista.innerHTML = textoLista
+        })
+
+    </script>
+</body>
+
+</html>
