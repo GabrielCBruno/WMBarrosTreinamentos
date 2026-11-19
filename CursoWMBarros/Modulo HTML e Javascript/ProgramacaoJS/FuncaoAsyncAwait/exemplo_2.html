@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 2 - For</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exemplo 2 - For</h2>
+        <button type="submit" id="btn_realizar_pedido" class="btn success" onclick="fazerPedido()">Realizar Pedido</button>
+        <p id="msg"></p>
+    </main>
+    <script>
+
+        const msg = document.getElementById("msg")
+        
+        function processarPedido() {
+
+            msg.innerHTML += `Iniciando os preparos. <br>`
+            for(let i = 0; i < 500000000; i++) {}
+            msg.innerHTML += `Comida finalizada, pode entregar.<br>`
+        }
+
+        function iniciarPedido() {
+            msg.innerHTML += `Enviando o pedido para a cozinha.<br>`
+            processarPedido()
+            msg.innerHTML += `Pedido pronto, chama o cliente.<br>`
+        }
+
+        function fazerPedido() {
+            msg.innerHTML = `Fazendo o pedido.<br>`
+            iniciarPedido()
+            msg.innerHTML += `Cliente pode fazer qualquer coisa.<br>`
+        }
+
+    </script>
+</body>
+
+</html>

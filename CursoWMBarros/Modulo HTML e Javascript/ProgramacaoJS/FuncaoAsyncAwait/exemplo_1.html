@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1 - setTimeout</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="header-main">
+        <a href="index.html">
+            <h1>Lógica de programação com Javascript</h1>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <h2>Exemplo 1 - setTimeout</h2>
+        <button type="submit" id="btn_realizar_pedido" class="btn success" onclick="fazerPedido()">Realizar Pedido</button>
+        <p id="msg"></p>
+    </main>
+    <script>
+
+        /*
+            1- Passo: Fazendo o pedido.
+            2- Passo: Enviando o pedido para a cozinha.
+            3- Passo: Iniciando os preparos.
+            4- Passo: Cliente pode fazer qualquer coisa.
+            5- Passo: Comida finalizada, pode entregar.
+            6- Passo: Pedido pronto, chama o cliente.         
+       */
+
+        const msg = document.getElementById("msg")
+        
+        function processarPedido() {
+
+            msg.innerHTML += `Iniciando os preparos. <br>`
+            setTimeout(() => {
+                msg.innerHTML += `Comida finalizada, pode entregar.<br>` 
+            }, 5000) //milisegundos (5000 = 5 segundos) - função async
+        }
+
+        function iniciarPedido() {
+            msg.innerHTML += `Enviando o pedido para a cozinha.<br>`
+            processarPedido()
+            msg.innerHTML += `Pedido pronto, chama o cliente.<br>`
+        }
+
+        function fazerPedido() {
+            msg.innerHTML = `Fazendo o pedido.<br>`
+            iniciarPedido()
+            msg.innerHTML += `Cliente pode fazer qualquer coisa.<br>`
+        }
+
+    </script>
+</body>
+
+</html>
