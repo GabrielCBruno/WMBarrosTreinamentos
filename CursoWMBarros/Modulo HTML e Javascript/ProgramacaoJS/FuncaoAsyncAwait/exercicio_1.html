@@ -4,12 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo 3 - For</title>
+    <title>Exercicio 1 - Simulador de Dowloand!</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
-
     <header class="header-main">
         <a href="index.html">
             <h1>Lógica de programação com Javascript</h1>
@@ -17,18 +15,36 @@
     </header>
 
     <main class="main-content">
-        <h2>Exemplo 3 - For</h2>
-        <button type="submit" id="btn_realizar_pedido" class="btn success" onclick="fazerPedido()">Realizar Pedido</button>
+        <h2>Exercicio 1 - Simulador de Dowloand!</h2>
+        <button type="submit" id="btn_iniciar_dowloand" class="btn success">Iniciar Dowloand</button>
         <p id="msg"></p>
     </main>
     <script>
 
-        const msg = document.getElementById("msg")
-        
-        function iniciarDowloand() {
-            msg.innerHTML += `Enviando solicitação... <br>`
-            realizarDowloand()
-             
+        const btnIniciarDowloand = document.getElementById("btn_iniciar_dowloand")
+        const msg = document.querySelector("#mgs")
+
+        btnIniciarDowloand.addEventListener("click", fazerAcao())
+
+        function processarDowloand() {
+            msg.innerHTML += "Iniciando dowloand...<br>"
+
+            //simula processamento demorado!
+            setTimeout(() => {
+                msg.innerHTML += "Dowloand concluído!<br>"
+            }, 4000)
+        }
+
+        async function iniciarDowloand() {
+            msg.innerHTML += "Enviando solicitação...<br>"
+            await processarDowloand()
+            msg.innerHTML += "Aguardando finalização...<br>"
+        }
+
+        function fazerAcao() {
+            msg.innerHTML = ""
+            //Executa sem finalizar o processo!
+            msg.innerHTML += "Fazendo outra coisa...<br>"
         }
 
     </script>
