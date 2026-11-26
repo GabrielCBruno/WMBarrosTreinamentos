@@ -23,29 +23,41 @@
     </main>
     <script>
 
+        
+        /*
+            1- Passo: Fazendo o pedido.
+            2- Passo: Enviando o pedido para a cozinha.
+            3- Passo: Iniciando os preparos.
+            4- Passo: Cliente pode fazer qualquer coisa.
+            5- Passo: Comida finalizada, pode entregar.
+            6- Passo: Pedido pronto, chama o cliente.         
+       */
+
         const msg = document.getElementById("msg")
         
         async function processarPedido() {
 
-            msg.innerHTML += `Iniciando os preparos. <br>`
-            await setTimeout(() => {
-                msg.innerHTML += `Comida finalizada, pode entregar.<br>` 
-            }, 5000) //milisegundos (5000 = 5 segundos) - função async
-
+            msg.innerHTML += `3 Iniciando os preparos. <br>`
+            setTimeout(() => {
+                msg.innerHTML += `6 Comida finalizada, pode entregar.<br>` 
+            }, 5000) 
         }
 
         async function iniciarPedido() {
-            msg.innerHTML += `Cliente pode fazer qualquer coisa.<br>`
-            await processarPedido() // await = obriga a função/processamento a ser finalizado antes de seguir o código. Se tiver uma função com await a função externa tem que ser async.
-            msg.innerHTML += `Pedido pronto, chama o cliente.<br>`
-            //async = função/processamento que é executada em paralelo com o restante do código.
+            msg.innerHTML += `2 Enviando o pedido para a cozinha.<br>`
+            await processarPedido() 
+            msg.innerHTML += `5 Pedido pronto, chama o cliente.<br>`
         }
 
         function fazerPedido() {
-            msg.innerHTML = `Fazendo o pedido.<br>`
-            iniciarPedido()
-            msg.innerHTML += `Enviando o pedido para a cozinha.<br>`
+            msg.innerHTML = `1 Fazendo o pedido.<br>`
+            iniciarPedido() 
+            msg.innerHTML += `4 Cliente pode fazer qualquer coisa.<br>`
         }
+
+        // await = obriga a função/processamento a ser finalizado antes de seguir o código. Se tiver uma função com await a função externa tem que ser async.
+
+        //async = função/processamento que é executada em paralelo com o restante do código.
 
     </script>
 </body>
